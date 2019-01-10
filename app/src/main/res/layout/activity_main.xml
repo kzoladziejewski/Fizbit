@@ -6,13 +6,57 @@
     android:layout_height="match_parent"
     tools:context="com.example.kacper.fizbit.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/mLogo"
+            android:layout_width="390dp"
+            android:layout_height="138dp"
+            android:layout_marginBottom="47dp"
+            app:layout_constraintBottom_toTopOf="@+id/mGraj"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?android:attr/textSelectHandle" />
+
+        <Button
+            android:id="@+id/mGraj"
+            android:layout_width="223dp"
+            android:layout_height="69dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="174dp"
+            android:text="@string/Graj"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mLogo" />
+
+        <Button
+            android:id="@+id/mUstawienia"
+            android:layout_width="219dp"
+            android:layout_height="62dp"
+            android:layout_below="@+id/mGraj"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="71dp"
+            android:text="@string/Ustawienia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mGraj" />
+
+        <Button
+            android:id="@+id/mWyjscie"
+            android:layout_width="223dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/mUstawienia"
+            android:layout_marginBottom="38dp"
+            android:text="@string/Wyjscie"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mUstawienia" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

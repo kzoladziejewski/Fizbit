@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Category" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Subject" />
+        <activity android:name=".Question" />
+        <activity android:name=".Score" />
+        <activity android:name=".Subject_adapter"></activity>
     </application>
 
 </manifest>

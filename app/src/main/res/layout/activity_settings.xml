@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kacper.fizbit.Settings">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/mUstawienia"
+            android:layout_width="313dp"
+            android:layout_height="59dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="@string/Ustawienia"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="43dp" />
+
+        <Switch
+            android:id="@+id/mDzwieki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/mUstawienia"
+            android:layout_below="@+id/mUstawienia"
+            android:layout_marginTop="99dp"
+            android:layout_weight="1"
+            android:text="@string/Dzwięki"
+            tools:layout_editor_absoluteX="283dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <Button
+            android:id="@+id/mLatwy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/mDzwieki"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="83dp"
+            android:text="@string/Latwy"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <Button
+            android:id="@+id/mSredni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/mLatwy"
+            android:layout_alignBottom="@+id/mLatwy"
+            android:layout_centerHorizontal="true"
+            android:text="@string/Sredni"
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <Button
+            android:id="@+id/mTrudny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/mSredni"
+            android:layout_alignBottom="@+id/mSredni"
+            android:layout_alignStart="@+id/mDzwieki"
+            android:layout_marginStart="14dp"
+            android:text="@string/Trudny"
+            tools:layout_editor_absoluteX="254dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <TextView
+            android:id="@+id/mPoziom"
+            android:layout_width="356dp"
+            android:layout_height="43dp"
+            android:layout_above="@+id/mSredni"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:text="@string/Poziom_trudności"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="212dp" />
+
+        <Button
+            android:id="@+id/mPowrot"
+            android:layout_width="342dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/mLatwy"
+            android:layout_marginBottom="23dp"
+            android:text="@string/Powrot"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="395dp" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

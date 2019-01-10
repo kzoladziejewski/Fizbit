@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Fizbit</string>
+    <string name="Graj">Graj</string>
+    <string name="Ustawienia">Ustawienia</string>
+    <string name="Wyjscie">Wyjście</string>
+    <string name="Fizyka">Fizyka</string>
+    <string name="Astronomia">Astronomia</string>
+    <string name="Powrot">Powrot</string>
+    <string name="Dzwięki">Dzwięki</string>
+    <string name="Poziom_trudności">Poziom trudności</string>
+    <string name="Latwy">Latwy</string>
+    <string name="Sredni">Sredni</string>
+    <string name="Trudny">Trudny</string>
+    <string name="Calosc">Calosc</string>
+    <string name="Dynamika">Dynamika</string>
+    <string name="Elektrycznosc">Elektrycznosc</string>
+    <string name="Optyka">Optyka</string>
+    <string name="Fizyka_jadrowa">Fizykajadrowa</string>
+    <string name="Pytanie">Pytanie</string>
+    <string name="A">A</string>
+    <string name="B">B</string>
+    <string name="C">C</string>
+    <string name="D">D</string>
+    <string name="Twoj_Wynik">Twój wynik</string>
+    <string name="x10">x/10</string>
+    <string name="JeszczeRaz">Jeszcze raz</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
