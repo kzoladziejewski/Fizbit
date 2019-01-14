@@ -1,5 +1,7 @@
 package com.example.kacper.fizbit;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -27,6 +29,9 @@ public class Subject extends AppCompatActivity {
         temats.setLayoutManager(new LinearLayoutManager(this));
         temats.setItemAnimator(new DefaultItemAnimator());
         String kategoria = getIntent().getStringExtra("kategoria");
+        SharedPreferences sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
+        sharedPreferences.edit().putString("kategoria",kategoria);
+        sharedPreferences.edit().apply();
         if (kategoria.contains("fizyka"))
         {
             kategoria_magazyn.add("Całość");

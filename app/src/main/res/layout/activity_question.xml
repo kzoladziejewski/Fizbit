@@ -13,22 +13,24 @@
         <TextView
             android:id="@+id/mPytanie"
             android:layout_width="353dp"
-            android:layout_height="147dp"
+            android:layout_height="75dp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="17dp"
+            android:layout_alignStart="@+id/mTimer"
             android:text="TextView"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            tools:layout_editor_absoluteY="16dp"
+            app:autoSizeTextType="uniform"/>
 
         <ProgressBar
             android:id="@+id/mTimer"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="349dp"
             android:layout_height="21dp"
-            android:layout_below="@+id/mPytanie"
+            android:layout_above="@+id/mAanswer"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="19dp"
+            android:layout_marginBottom="22dp"
+            android:max="100"
+            android:progress="100"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="179dp" />
 
@@ -75,9 +77,17 @@
             android:layout_width="377dp"
             android:layout_height="113dp"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/mCanswer"
+            android:layout_below="@+id/mDanswer"
             tools:layout_editor_absoluteX="4dp"
             tools:layout_editor_absoluteY="382dp" />
+
+        <ImageView
+            android:id="@+id/mObraz"
+            android:layout_width="400dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/mPytanie"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
     </RelativeLayout>
 

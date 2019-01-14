@@ -1,6 +1,8 @@
 package com.example.kacper.fizbit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +33,6 @@ public class Subject_Adapter extends RecyclerView.Adapter {
     public Subject_Adapter(ArrayList<String> kategoria, RecyclerView temats) {
         Log.e("Udalo sie","aa");
         this.kategoria=kategoria;
-        Log.e("Udalo sie", String.valueOf(kategoria));
         this.mRecyclerView=temats;
     }
 
@@ -47,6 +48,7 @@ public class Subject_Adapter extends RecyclerView.Adapter {
                     int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
                     Intent pytania = new Intent(v.getContext(), Question.class);
                     pytania.putExtra("temat",kategoria.get(wybrana_kategoria));
+
                     v.getContext().startActivity(pytania);
                 }
             });

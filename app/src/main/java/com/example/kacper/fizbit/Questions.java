@@ -5,26 +5,29 @@ package com.example.kacper.fizbit;
  */
 
 public class Questions {
-    String pytanie, poprawna, bledna_1, bledna_2, bledna_3, poziom, kategoria, dziedzina;
+    String pytanie, poprawna, bledna_1, bledna_2, bledna_3;
+    int sciezka;
     boolean img;
-    public Questions(String kategoria,
-                    String dziedzina,
-                    String pytanie,
+
+    public Questions(
+
+                     String pytanie,
                      String poprawna,
                      String bledna_1,
                      String bledna_2,
                      String bledna_3,
-                     String poziom,
-                     boolean img) {
-        this.kategoria=kategoria;
-        this.dziedzina=dziedzina;
+                     boolean img,
+                     int sciezka) {
+//        this.kategoria=kategoria;
+//        this.dziedzina=dziedzina;
     this.poprawna=poprawna;
     this.pytanie=pytanie;
     this.bledna_1=bledna_1;
     this.bledna_2=bledna_2;
     this.bledna_3=bledna_3;
-    this.poziom = poziom;
+//    this.poziom = poziom;
     this.img = img;
+    this.sciezka = sciezka;
     }
 
     public String getPytanie()
@@ -47,22 +50,23 @@ public class Questions {
     {
         return bledna_3;
     }
-    public String getPoziom()
-    {
-        return poziom;
-    }
+//    public String getPoziom()
+//    {
+//        return poziom;
+//    }
     public boolean getImg()
     {
         return img;
     }
-    public String getKategoria()
-    {
-        return kategoria;
-    }
+//    public String getKategoria()
+//    {
+//        return kategoria;
+//    }
 
-    public String getDziedzina()
-    {
-        return dziedzina;
-    }
+//    public String getDziedzina()
+//    {
+//        return dziedzina;
+//    }
+    public int getSciezka() {return sciezka;}
 
 }
