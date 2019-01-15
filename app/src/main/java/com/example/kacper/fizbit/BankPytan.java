@@ -1,5 +1,7 @@
 package com.example.kacper.fizbit;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,9 @@ public class BankPytan {
 //ELEKTRYKA
 
         //LATWA
+        Log.e("temat",temat);
+        Log.e("temat",kategoria);
+        Log.e("temat",level);
         if (kategoria.equals("Fizyka") && temat.equals("Elektrycznosc")) {
 //            dzial = "Fizyka";
 //            dziedzina = "Elektrycznosc";

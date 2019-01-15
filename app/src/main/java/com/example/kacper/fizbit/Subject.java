@@ -19,6 +19,7 @@ public class Subject extends AppCompatActivity {
     TextView podkategoria;
     RecyclerView temats;
     ArrayList<String> kategoria_magazyn = new ArrayList<>();
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class Subject extends AppCompatActivity {
         temats.setLayoutManager(new LinearLayoutManager(this));
         temats.setItemAnimator(new DefaultItemAnimator());
         String kategoria = getIntent().getStringExtra("kategoria");
-        SharedPreferences sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         sharedPreferences.edit().putString("kategoria",kategoria);
         sharedPreferences.edit().apply();
         if (kategoria.contains("fizyka"))
@@ -52,7 +53,7 @@ public class Subject extends AppCompatActivity {
         }
         Log.e("kategoria",kategoria);
         Log.e("kategoria", String.valueOf(kategoria_magazyn));
-        temats.setAdapter(new Subject_Adapter(kategoria_magazyn, temats));
+        temats.setAdapter(new Subject_Adapter(kategoria_magazyn, temats, getApplicationContext()));
 
     }
 }

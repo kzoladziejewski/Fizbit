@@ -30,17 +30,22 @@ import java.util.Random;
 public class Question extends AppCompatActivity {
     TextView pytanie;
     CountDownTimer mDownTimer, mDownTimer_2;
+    SharedPreferences sharedPreferences;
     ImageView mObrazek;
     ProgressBar timer;
+    BankPytan bankPytan;
     Button mA,mB,mC,mD, dobry;
     RecyclerView punkty;
-    int indeks_pytania = 0;
+    int indeks_pytania=0;
+    int i=0;
+    int wynik = 0;
     ArrayList<Questions> pyty = new ArrayList<Questions>();
-    int i = 0;
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        pyty = new ArrayList<Questions>();
+        punkties = new ArrayList<Punkty>();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_question);
@@ -55,12 +60,15 @@ punkties.add(new Punkty(Color.GRAY));
         punkciki.setLayoutManager(new GridLayoutManager(this,5));
         punkciki.setItemAnimator(new DefaultItemAnimator());
 
-        SharedPreferences sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         String kategoria = sharedPreferences.getString("kategoria","Fizyka");
-        String dziedzina = sharedPreferences.getString("dziedzina",getIntent().getStringExtra("temat"));
+        String dziedzina = sharedPreferences.getString("dziedzina","None");
         String level = sharedPreferences.getString("level","Latwy");
+      sharedPreferences.edit().putString("dziedzina",dziedzina);
+//        sharedPreferences.edit().putInt("score",0);
+        sharedPreferences.edit().apply();
 
-        BankPytan bankPytan = new BankPytan(kategoria,dziedzina,level);
+        bankPytan = new BankPytan(kategoria,dziedzina,level);
 
         pytanie = (TextView) findViewById(R.id.mPytanie);
 
@@ -78,15 +86,12 @@ punkties.add(new Punkty(Color.GRAY));
         mC = (Button) findViewById(R.id.mCanswer);
         mD = (Button) findViewById(R.id.mDanswer);
 
-//        punkty  = (RecyclerView) findViewById(R.id.mRecycle);
-
         mA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mA.setBackgroundColor(Color.RED);
                 String answer = String.valueOf(mA.getText());
-                Log.e("ODP",answer);
-                checkAnswer(answer);
+                checkAnswer(answer, mA);
             }
         });
 
@@ -94,27 +99,24 @@ punkties.add(new Punkty(Color.GRAY));
             @Override
             public void onClick(View v) {
                 mB.setBackgroundColor(Color.RED);
-                String answer = String.valueOf(mA.getText());
-                Log.e("ODP",answer);
-                checkAnswer(answer);
+                String answer = String.valueOf(mB.getText());
+                checkAnswer(answer, mB);
             }
         });
         mC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mC.setBackgroundColor(Color.RED);
-                String answer = String.valueOf(mA.getText());
-                Log.e("ODP",answer);
-                checkAnswer(answer);
+                String answer = String.valueOf(mC.getText());
+                checkAnswer(answer,mC);
             }
         });
         mD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mD.setBackgroundColor(Color.RED);
-                String answer = String.valueOf(mA.getText());
-                Log.e("ODP",answer);
-                checkAnswer(answer);
+                String answer = String.valueOf(mD.getText());
+                checkAnswer(answer,mD);
             }
         });
 
@@ -149,6 +151,7 @@ NextQuest();
             }
 
             ArrayList<Button> guziki = new ArrayList<>();
+
             guziki.add(mA);
             guziki.add(mB);
             guziki.add(mC);
@@ -175,25 +178,32 @@ NextQuest();
         }
         else {
                 Intent score = new Intent(this, Score.class);
+                score.putExtra("score",wynik);
+                finish();
                 startActivity(score);
             }
         }
 
-        public void checkAnswer(String answer)
+        public void checkAnswer(String answer, Button correct)
         {
             mA.setEnabled(false);
             mB.setEnabled(false);
             mC.setEnabled(false);
             mD.setEnabled(false);
-            String pol = (String) dobry.getText();
-            if(pol.equals(answer))
+
+
+            if(answer.equals(pyty.get(indeks_pytania).getPoprawna()))
             {
-Log.e("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD","AAAAAAAAAAAAAAAAAAAAA");
-dobry.setBackgroundColor(Color.GREEN);
+correct.setBackgroundColor(Color.GREEN);
 punkties.get(indeks_pytania).changeColor(Color.GREEN);
+                wynik++;
+                sharedPreferences.edit().putInt("score",wynik);
+                sharedPreferences.edit().apply();
             }
             else
             {
+                correct.setBackgroundColor(Color.RED);
+                dobry.setBackgroundColor(Color.GREEN);
                 punkties.get(indeks_pytania).changeColor(Color.RED);
             }
             points();
@@ -228,7 +238,7 @@ punkties.get(indeks_pytania).changeColor(Color.GREEN);
                 @Override
                 public void onFinish() {
                     timer.setProgress(100);
-                    checkAnswer("zadnaZNich");
+                    checkAnswer("zadnaZNich", dobry);
                 }
             };
             mDownTimer.start();
@@ -250,6 +260,7 @@ punkties.get(indeks_pytania).changeColor(Color.GREEN);
 
         public void points()
         {
+
             punkciki.setAdapter(new Points(punkties, punkciki));
 
         }

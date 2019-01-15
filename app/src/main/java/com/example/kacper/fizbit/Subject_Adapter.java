@@ -1,5 +1,6 @@
 package com.example.kacper.fizbit;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +19,9 @@ import java.util.ArrayList;
 
 public class Subject_Adapter extends RecyclerView.Adapter {
     private ArrayList<String> kategoria = new ArrayList<String>();
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+    Context ctx;
 
     private RecyclerView mRecyclerView;
 
@@ -30,10 +34,13 @@ public class Subject_Adapter extends RecyclerView.Adapter {
         }
     }
 
-    public Subject_Adapter(ArrayList<String> kategoria, RecyclerView temats) {
+    public Subject_Adapter(ArrayList<String> kategoria, RecyclerView temats, Context context) {
         Log.e("Udalo sie","aa");
         this.kategoria=kategoria;
         this.mRecyclerView=temats;
+        this.ctx = context;
+        preferences = ctx.getSharedPreferences("fizbit", Activity.MODE_PRIVATE);
+        editor = preferences.edit();
     }
 
 
@@ -41,14 +48,13 @@ public class Subject_Adapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.subject_adapter, parent, false);
-        Log.e("Kategoria","ej");
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
                     Intent pytania = new Intent(v.getContext(), Question.class);
-                    pytania.putExtra("temat",kategoria.get(wybrana_kategoria));
-
+                    editor.putString("dziedzina",kategoria.get(wybrana_kategoria));
+                    editor.apply();
                     v.getContext().startActivity(pytania);
                 }
             });
