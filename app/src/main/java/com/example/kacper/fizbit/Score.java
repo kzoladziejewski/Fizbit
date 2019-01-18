@@ -32,12 +32,11 @@ public class Score extends AppCompatActivity {
         wynik = getIntent().getIntExtra("score",0);
         Log.e("aaaa", String.valueOf(wynik));
 
-        mX10.setText("TWOJ WYNIK TO! \n "+wynik+"\\10");
         mPowrot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                finish();
                 startActivityForResult(Powrot,1);
             }
         });
@@ -45,6 +44,7 @@ public class Score extends AppCompatActivity {
         mJeszczeRaz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(jeszczeRaz);
             }
         });

@@ -14,7 +14,7 @@
             android:id="@+id/mUstawienia"
             android:layout_width="313dp"
             android:layout_height="59dp"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/mLogo"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:text="@string/Ustawienia"
@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/mUstawienia"
             android:layout_below="@+id/mUstawienia"
-            android:layout_marginTop="99dp"
             android:layout_weight="1"
             android:text="@string/Dzwięki"
             tools:layout_editor_absoluteX="283dp"
@@ -89,6 +88,14 @@
             android:text="@string/Powrot"
             tools:layout_editor_absoluteX="24dp"
             tools:layout_editor_absoluteY="395dp" />
+
+        <ImageView
+            android:id="@+id/mLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/corgi" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

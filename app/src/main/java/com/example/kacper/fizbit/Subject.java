@@ -8,6 +8,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -24,7 +25,10 @@ public class Subject extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject);
-        podkategoria = (TextView) findViewById(R.id.mKategoria);
+        podkategoria = (TextView) findViewById(R.id.mPodkategoria);
+        podkategoria.setGravity(Gravity.CENTER | Gravity.BOTTOM);
+        podkategoria.setTextSize(30);
+
         temats = (RecyclerView) findViewById(R.id.subject);
         temats.setHasFixedSize(true);
         temats.setLayoutManager(new LinearLayoutManager(this));
@@ -33,6 +37,7 @@ public class Subject extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         sharedPreferences.edit().putString("kategoria",kategoria);
         sharedPreferences.edit().apply();
+
         if (kategoria.contains("fizyka"))
         {
             kategoria_magazyn.add("Całość");

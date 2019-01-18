@@ -143,12 +143,17 @@ NextQuest();
 
         if (indeks_pytania < 10){
             timer_1();
-                pytanie.setText(pyty.get(indeks_pytania).getPytanie());
             if (pyty.get(indeks_pytania).getImg())
             {
                 mObrazek.setVisibility(View.VISIBLE);
                 mObrazek.setBackgroundResource(pyty.get(indeks_pytania).getSciezka());
             }
+            else
+            {
+                pytanie.setHeight(pytanie.getHeight()+mObrazek.getMaxHeight());
+            }
+            pytanie.setText(pyty.get(indeks_pytania).getPytanie());
+            pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
 
             ArrayList<Button> guziki = new ArrayList<>();
 
@@ -202,6 +207,8 @@ punkties.get(indeks_pytania).changeColor(Color.GREEN);
             }
             else
             {
+                sharedPreferences.edit().putInt("score",wynik);
+                sharedPreferences.edit().apply();
                 correct.setBackgroundColor(Color.RED);
                 dobry.setBackgroundColor(Color.GREEN);
                 punkties.get(indeks_pytania).changeColor(Color.RED);

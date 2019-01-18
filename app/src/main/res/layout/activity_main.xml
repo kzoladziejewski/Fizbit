@@ -10,16 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/mLogo"
             android:layout_width="390dp"
             android:layout_height="138dp"
-            android:layout_marginBottom="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             app:layout_constraintBottom_toTopOf="@+id/mGraj"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="?android:attr/textSelectHandle" />
+            app:srcCompat="@drawable/corgi" />
 
         <Button
             android:id="@+id/mGraj"
@@ -39,7 +40,7 @@
             android:layout_height="62dp"
             android:layout_below="@+id/mGraj"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="71dp"
+            android:layout_marginTop="54dp"
             android:text="@string/Ustawienia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

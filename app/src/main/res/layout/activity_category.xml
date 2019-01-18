@@ -14,36 +14,25 @@
             android:id="@+id/mKategoria"
             android:layout_width="371dp"
             android:layout_height="63dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/mLogo"
+            android:text="@string/Dziala" />
         <Button
             android:id="@+id/mFizyka"
             android:layout_width="359dp"
             android:layout_height="67dp"
-            android:layout_below="@+id/mKategoria"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="78dp"
-            android:text="@string/Fizyka"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mKategoria" />
+            android:layout_centerVertical="true"
+            android:text="@string/Fizyka" />
 
         <Button
             android:id="@+id/mAstronomia"
-            android:layout_width="357dp"
-            android:layout_height="58dp"
-            android:layout_alignStart="@+id/mFizyka"
+            android:layout_width="359dp"
+            android:layout_height="67dp"
             android:layout_below="@+id/mFizyka"
-            android:layout_marginTop="60dp"
-            android:text="@string/Astronomia"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mFizyka" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp"
+            android:text="@string/Astronomia" />
 
         <Button
             android:id="@+id/mPowrot"
@@ -51,12 +40,16 @@
             android:layout_height="58dp"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/mAstronomia"
-            android:layout_marginBottom="60dp"
-            android:text="@string/Powrot"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mAstronomia" />
+            android:layout_marginBottom="30dp"
+            android:text="@string/Powrot" />
+
+        <ImageView
+            android:id="@+id/mLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/corgi" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
