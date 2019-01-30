@@ -14,9 +14,7 @@ public class BankPytan {
 
     public BankPytan(String kategoria, String temat, String level) {
         String dzial, dziedzina, poziom;
-        Log.e("temat",temat);
-        Log.e("temat",kategoria);
-        Log.e("temat",level);
+
 //        CALOSC
 //ELEKTRYKA
         //LATWA

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
     TextView mUstawiania, mPoziomTrudnosci;
@@ -27,31 +28,33 @@ public class Settings extends AppCompatActivity {
         mTrudny = (Button) findViewById(R.id.mTrudny);
         mPowrot = (Button) findViewById(R.id.mPowrot);
 
-        sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
-//        String level = sharedPreferences.getString("level","Latwy");
-//        sharedPreferences.edit().putString("level");
 
         mLatwy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferences.edit().putString("level","Latwy");
-                sharedPreferences.edit().apply();
+                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano latwy poziom",Toast.LENGTH_SHORT);
+                toast.show();
+                zapis("Latwy");
             }
         });
 
         mSredni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferences.edit().putString("level","Sredni");
-                sharedPreferences.edit().apply();
+                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano średni poziom",Toast.LENGTH_SHORT);
+                toast.show();
+                zapis("Sredni");
+
             }
         });
 
         mTrudny.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferences.edit().putString("level","Trudny");
-                sharedPreferences.edit().apply();
+                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano trudny poziom",Toast.LENGTH_SHORT);
+                toast.show();
+                zapis("Trudny");
+
             }
         });
 
@@ -61,6 +64,23 @@ public class Settings extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+
+        super.onDestroy();
+
+    }
+
+    public void zapis(String poziom)
+    {
+        sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("level",poziom);
+        editor.commit();
 
     }
 }

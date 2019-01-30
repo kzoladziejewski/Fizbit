@@ -29,46 +29,58 @@ import java.util.Random;
 
 public class Question extends AppCompatActivity {
     TextView pytanie;
-    CountDownTimer mDownTimer, mDownTimer_2;
+    CountDownTimer mDownTimer, mDownTimer_2, PoznajPytanieTimer;
     SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     ImageView mObrazek;
     ProgressBar timer;
     BankPytan bankPytan;
-    Button mA,mB,mC,mD, dobry;
+    Button mA, mB, mC, mD, dobry;
     RecyclerView punkty;
-    int indeks_pytania=0;
-    int i=0;
-    int wynik = 0;
+    int indeks_pytania, i, wynik = 0;
+    Boolean checked = false;
     ArrayList<Questions> pyty = new ArrayList<Questions>();
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         pyty = new ArrayList<Questions>();
         punkties = new ArrayList<Punkty>();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_question);
 
-        for (int i = 0; i < 10; i++)
-        {
-punkties.add(new Punkty(Color.GRAY));
+        for (int i = 0; i < 10; i++) {
+            punkties.add(new Punkty(Color.GRAY));
         }
 
         punkciki = (RecyclerView) findViewById(R.id.mRecycle);
         punkciki.setHasFixedSize(true);
-        punkciki.setLayoutManager(new GridLayoutManager(this,5));
+        punkciki.setLayoutManager(new GridLayoutManager(this, 5));
         punkciki.setItemAnimator(new DefaultItemAnimator());
+        points();
 
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
-        String kategoria = sharedPreferences.getString("kategoria","Fizyka");
-        String dziedzina = sharedPreferences.getString("dziedzina","None");
-        String level = sharedPreferences.getString("level","Latwy");
-      sharedPreferences.edit().putString("dziedzina",dziedzina);
-//        sharedPreferences.edit().putInt("score",0);
-        sharedPreferences.edit().apply();
+        editor = sharedPreferences.edit();
+        String kategoria = sharedPreferences.getString("kategoria", "Fizyka");
+        String dziedzina = sharedPreferences.getString("dziedzina", "None");
+        String level = sharedPreferences.getString("level", "Latwy");
 
-        bankPytan = new BankPytan(kategoria,dziedzina,level);
+        sharedPreferences.edit().putString("dziedzina", dziedzina);
+
+        bankPytan = new BankPytan(kategoria, dziedzina, level);
+        int a = 0;
+        while (a != 10) {
+            Random r = new Random();
+            int random = r.nextInt(bankPytan.getSize());
+
+            if (!pyty.contains(bankPytan.getPytania().get(random))) {
+                pyty.add(bankPytan.getPytania().get(random));
+                a++;
+            }
+        }
 
         pytanie = (TextView) findViewById(R.id.mPytanie);
 
@@ -78,8 +90,10 @@ punkties.add(new Punkty(Color.GRAY));
 
         timer = (ProgressBar) findViewById(R.id.mTimer);
         timer.setProgress(0);
+
         timer_1();
-        timer_2();
+//        timer_2();
+        PoznajPytanie();
 
         mA = (Button) findViewById(R.id.mAanswer);
         mB = (Button) findViewById(R.id.mBanswer);
@@ -108,7 +122,7 @@ punkties.add(new Punkty(Color.GRAY));
             public void onClick(View v) {
                 mC.setBackgroundColor(Color.RED);
                 String answer = String.valueOf(mC.getText());
-                checkAnswer(answer,mC);
+                checkAnswer(answer, mC);
             }
         });
         mD.setOnClickListener(new View.OnClickListener() {
@@ -116,41 +130,52 @@ punkties.add(new Punkty(Color.GRAY));
             public void onClick(View v) {
                 mD.setBackgroundColor(Color.RED);
                 String answer = String.valueOf(mD.getText());
-                checkAnswer(answer,mD);
+                checkAnswer(answer, mD);
             }
         });
 
+        hideButton();
+        NextQuest();
+    }
 
-        int a = 0;
-        while (a!=10)
-        {
-Random r = new Random();
-int random = r.nextInt(bankPytan.getSize());
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        mDownTimer.start();
+        PoznajPytanieTimer.start();
+    }
 
-        if (!pyty.contains(bankPytan.getPytania().get(random))) {
-            pyty.add(bankPytan.getPytania().get(random));
-                a++;
-            }
-        }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mDownTimer.cancel();
+        PoznajPytanieTimer.cancel();
+    }
 
-NextQuest();
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDownTimer.cancel();
+        PoznajPytanieTimer.cancel();
+        finish();
+    }
 
     public void NextQuest() {
+        checked = false;
+        mDownTimer.cancel();
+        hideButton();
+        PoznajPytanieTimer.start();
         mObrazek.setVisibility(View.INVISIBLE);
         mObrazek.setBackgroundResource(0);
-        mDownTimer.cancel();
-
-        if (indeks_pytania < 10){
-            timer_1();
-            if (pyty.get(indeks_pytania).getImg())
-            {
+        hideButton();
+        if (indeks_pytania < 10) {
+//            timer_1();
+            if (pyty.get(indeks_pytania).getImg()) {
                 mObrazek.setVisibility(View.VISIBLE);
                 mObrazek.setBackgroundResource(pyty.get(indeks_pytania).getSciezka());
-            }
-            else
-            {
-                pytanie.setHeight(pytanie.getHeight()+mObrazek.getMaxHeight());
+            } else {
+                pytanie.setHeight(pytanie.getHeight() + mObrazek.getMaxHeight());
             }
             pytanie.setText(pyty.get(indeks_pytania).getPytanie());
             pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
@@ -180,96 +205,121 @@ NextQuest();
                 guziki.remove(a);
                 odpowiedzi.remove(odpowiedzi.size() - 1);
             }
-        }
-        else {
-                Intent score = new Intent(this, Score.class);
-                score.putExtra("score",wynik);
-                finish();
-                startActivity(score);
-            }
-        }
-
-        public void checkAnswer(String answer, Button correct)
-        {
-            mA.setEnabled(false);
-            mB.setEnabled(false);
-            mC.setEnabled(false);
-            mD.setEnabled(false);
-
-
-            if(answer.equals(pyty.get(indeks_pytania).getPoprawna()))
-            {
-correct.setBackgroundColor(Color.GREEN);
-punkties.get(indeks_pytania).changeColor(Color.GREEN);
-                wynik++;
-                sharedPreferences.edit().putInt("score",wynik);
-                sharedPreferences.edit().apply();
-            }
-            else
-            {
-                sharedPreferences.edit().putInt("score",wynik);
-                sharedPreferences.edit().apply();
-                correct.setBackgroundColor(Color.RED);
-                dobry.setBackgroundColor(Color.GREEN);
-                punkties.get(indeks_pytania).changeColor(Color.RED);
-            }
-            points();
-            indeks_pytania++;
-            mDownTimer_2.start();
-
-        }
-
-        public void reset()
-        {
-            timer.setProgress(0);
-            i = 0;
-            mA.setEnabled(true);
-            mB.setEnabled(true);
-            mC.setEnabled(true);
-            mD.setEnabled(true);
-            mA.setBackgroundColor(Color.LTGRAY);
-            mB.setBackgroundColor(Color.LTGRAY);
-            mC.setBackgroundColor(Color.LTGRAY);
-            mD.setBackgroundColor(Color.LTGRAY);
-            NextQuest();
-        }
-
-        public void timer_1()
-        {
-            mDownTimer = new CountDownTimer(5000,1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    i++;
-                    timer.setProgress((int)i*100/(5000/1000));
-                }
-                @Override
-                public void onFinish() {
-                    timer.setProgress(100);
-                    checkAnswer("zadnaZNich", dobry);
-                }
-            };
-            mDownTimer.start();
-        }
-        public void timer_2()
-        {
-            mDownTimer_2 = new CountDownTimer(1000,1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                }
-                @Override
-                public void onFinish() {
-                reset();
-
-                }
-            };
-            mDownTimer_2.cancel();
-        }
-
-        public void points()
-        {
-
-            punkciki.setAdapter(new Points(punkties, punkciki));
-
+        } else {
+            editor.putInt("score", wynik);
+            editor.apply();
+            Intent score = new Intent(this, Score.class);
+            mDownTimer.cancel();
+            PoznajPytanieTimer.cancel();
+            startActivityForResult(score, 1);
         }
     }
+
+
+    public void blocker() {
+        mA.setEnabled(false);
+        mB.setEnabled(false);
+        mC.setEnabled(false);
+        mD.setEnabled(false);
+    }
+
+    public void checkAnswer(String answer, Button correct) {
+        checked = true;
+        blocker();
+
+        if (answer.equals(pyty.get(indeks_pytania).getPoprawna())) {
+            correct.setBackgroundColor(Color.GREEN);
+            punkties.get(indeks_pytania).changeColor(Color.GREEN);
+            Log.e("PYTANIE", String.valueOf(wynik));
+            wynik++;
+            Log.e("PYTANIE W CZYM JEST RZECZ", String.valueOf(wynik));
+        } else {
+            Log.e("ZLA ODPOWIEDZ KTORA MA PUNKTY", String.valueOf(wynik));
+
+            correct.setBackgroundColor(Color.RED);
+            dobry.setBackgroundColor(Color.GREEN);
+            punkties.get(indeks_pytania).changeColor(Color.RED);
+        }
+        points();
+        indeks_pytania++;
+
+    }
+
+    public void reset() {
+        timer.setProgress(0);
+        i = 0;
+
+        mA.setEnabled(true);
+        mA.setBackgroundColor(Color.LTGRAY);
+
+        mB.setEnabled(true);
+        mB.setBackgroundColor(Color.LTGRAY);
+
+        mC.setEnabled(true);
+        mC.setBackgroundColor(Color.LTGRAY);
+
+        mD.setEnabled(true);
+        mD.setBackgroundColor(Color.LTGRAY);
+
+        NextQuest();
+    }
+    public void showButton()
+    {
+        mA.setVisibility(View.VISIBLE);
+        mB.setVisibility(View.VISIBLE);
+        mC.setVisibility(View.VISIBLE);
+        mD.setVisibility(View.VISIBLE);
+    }
+    public void hideButton()
+    {
+        mA.setVisibility(View.INVISIBLE);
+        mB.setVisibility(View.INVISIBLE);
+        mC.setVisibility(View.INVISIBLE);
+        mD.setVisibility(View.INVISIBLE);
+    }
+
+    public void timer_1() {
+        mDownTimer = new CountDownTimer(5000, 100) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                i++;
+                timer.setProgress((int) i * 100 / (5000 / 100));
+            }
+
+            @Override
+            public void onFinish() {
+                timer.setProgress(100);
+                if (!checked) {
+                    checkAnswer("zadnaZNich", dobry);
+                }
+                reset();
+
+            }
+        };
+        mDownTimer.cancel();
+    }
+
+    public void PoznajPytanie() {
+        PoznajPytanieTimer = new CountDownTimer(5000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                mDownTimer.start();
+//                mDownTimer_2.start();
+                showButton();
+            }
+        };
+        PoznajPytanieTimer.cancel();
+    }
+
+    public void points() {
+        punkciki.setAdapter(new Points(punkties, punkciki));
+    }
+
+
+}
 

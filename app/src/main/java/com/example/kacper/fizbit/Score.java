@@ -29,8 +29,11 @@ public class Score extends AppCompatActivity {
         mJeszczeRaz = (Button) findViewById(R.id.mJeszczeRaz);
         mPowrot = (Button) findViewById(R.id.mPowrot);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
-        wynik = getIntent().getIntExtra("score",0);
+        Log.e("Problemy psychiczne są tutaj:", String.valueOf(sharedPreferences.getInt("score",0)));
+        wynik = sharedPreferences.getInt("score",0);
         Log.e("aaaa", String.valueOf(wynik));
+
+
 
         mPowrot.setOnClickListener(new View.OnClickListener() {
             @Override

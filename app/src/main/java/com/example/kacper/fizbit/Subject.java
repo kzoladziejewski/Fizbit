@@ -27,7 +27,7 @@ public class Subject extends AppCompatActivity {
         setContentView(R.layout.activity_subject);
         podkategoria = (TextView) findViewById(R.id.mPodkategoria);
         podkategoria.setGravity(Gravity.CENTER | Gravity.BOTTOM);
-        podkategoria.setTextSize(30);
+        podkategoria.setTextSize(25);
 
         temats = (RecyclerView) findViewById(R.id.subject);
         temats.setHasFixedSize(true);

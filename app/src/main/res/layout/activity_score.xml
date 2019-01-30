@@ -8,41 +8,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/mWynik"
-            android:layout_width="274dp"
-            android:layout_height="116dp"
-            android:layout_above="@+id/mx10"
-            android:layout_alignStart="@+id/mx10"
-            android:layout_marginBottom="44dp"
-            android:text="@string/Twoj_Wynik"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/mx10"
             android:layout_width="269dp"
             android:layout_height="99dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/x10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mWynik" />
+            android:layout_alignEnd="@+id/mWynik"
+            android:layout_alignStart="@+id/mJeszczeRaz"
+            android:layout_alignTop="@+id/mWynik"
+            android:layout_marginTop="56dp"
+            android:text="@string/x10" />
 
         <Button
             android:id="@+id/mJeszczeRaz"
             android:layout_width="263dp"
             android:layout_height="69dp"
-            android:layout_alignStart="@+id/mx10"
-            android:layout_below="@+id/mx10"
-            android:layout_marginTop="40dp"
-            android:text="@string/JeszczeRaz"
-            app:layout_constraintBottom_toTopOf="@+id/mPowrot"
-            tools:layout_editor_absoluteX="55dp" />
+
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="109dp"
+            android:text="@string/JeszczeRaz" />
 
         <Button
             android:id="@+id/mPowrot"
@@ -50,11 +38,25 @@
             android:layout_height="55dp"
             android:layout_alignEnd="@+id/mJeszczeRaz"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="19dp"
-            android:text="@string/Powrot"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginBottom="26dp"
+            android:text="@string/Powrot" />
+
+        <ImageView
+            android:id="@+id/mLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:srcCompat="@drawable/corgi" />
+
+        <TextView
+            android:id="@+id/mWynik"
+            android:layout_width="274dp"
+            android:layout_height="50dp"
+            android:layout_alignStart="@+id/mJeszczeRaz"
+            android:layout_below="@+id/mLogo"
+            android:layout_marginTop="32dp"
+            android:text="@string/Twoj_Wynik" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
