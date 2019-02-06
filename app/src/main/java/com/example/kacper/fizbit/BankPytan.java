@@ -14,7 +14,7 @@ public class BankPytan {
 
     public BankPytan(String kategoria, String temat, String level) {
         String dzial, dziedzina, poziom;
-
+        Log.e("BANK PYTAN", temat);
 //        CALOSC
 //ELEKTRYKA
         //LATWA
@@ -138,13 +138,16 @@ public class BankPytan {
             //TRUDNY
         }
 //        FIZYKA JĄDROWA
-        if (kategoria.equals("Fizyka") && (temat.equals("Optyka") || temat.equals("Całość")) ) {
+        Log.e("BANK PYTAN","IDE TUTAJ");
+        if (kategoria.equals("Fizyka") && (temat.equals("Fizyka jądrowa") || temat.equals("Całość")) ) {
+            Log.e("BANK PYTAN","IDE TUTAJ2");
 
             ///LATWY
             if (level.equals("Latwy")) {
+                Log.e("BANK PYTAN","IDE TUTAJ3");
 
 
-        pytania.add(new Questions("Jądro atomowe składa się z:","Protonów, Neutronów, Elektronów","Atomów i elektronów","Protetyków, Neurotyków, Energetyków","Protonów, Neutronów i Elektryków",false, 0);
+        pytania.add(new Questions("Jądro atomowe składa się z:","Protonów, Neutronów, Elektronów","Atomów i elektronów","Protetyków, Neurotyków, Energetyków","Protonów, Neutronów i Elektryków",false, 0));
         pytania.add(new Questions("Dodatni ładunek jądra atomowego to:","Proton","Dodatron","Elektron","Neutron",false,0));
         pytania.add(new Questions("Ujemny ładunek jądra atomowego to:","Elektron","Dodatron","Proton","Neutron",false,0));
         pytania.add(new Questions("Neutralny ładunek jądra atomowego to:","Neutron","Dodatron","Elektron","Proton",false,0));

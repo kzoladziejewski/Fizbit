@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Question extends AppCompatActivity {
-    TextView pytanie;
+    TextView pytanie, mLicznik;
     CountDownTimer mDownTimer, mPokazPoprawna, PoznajPytanieTimer;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -43,7 +43,7 @@ public class Question extends AppCompatActivity {
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
     Boolean firststart = true;
-
+    double mLicznik_czasu=6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -89,6 +89,7 @@ public class Question extends AppCompatActivity {
         mObrazek.setVisibility(View.INVISIBLE);
         mObrazek.setImageResource(0);
 
+        mLicznik = (TextView) findViewById(R.id.mLicznik);
         timer = (ProgressBar) findViewById(R.id.mTimer);
         timer.setProgress(0);
 
@@ -135,7 +136,6 @@ public class Question extends AppCompatActivity {
             }
         });
 
-        hideButton();
         NextQuest();
     }
 
@@ -169,9 +169,9 @@ public class Question extends AppCompatActivity {
     }
         firststart = false;
         PoznajPytanieTimer.start();
+        hideButton();
         mObrazek.setVisibility(View.INVISIBLE);
         mObrazek.setBackgroundResource(0);
-        hideButton();
         if (indeks_pytania < 10) {
 //            timer_1();
             if (pyty.get(indeks_pytania).getImg()) {
@@ -183,6 +183,7 @@ public class Question extends AppCompatActivity {
             }
             pytanie.setText(pyty.get(indeks_pytania).getPytanie());
             pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
+//            pytanie.setTextSize(getResources().getDimension(R.dimen.fab_margin));
             ArrayList<Button> guziki = new ArrayList<>();
 
             guziki.add(mA);
@@ -307,11 +308,20 @@ public class Question extends AppCompatActivity {
         PoznajPytanieTimer = new CountDownTimer(5000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
+                String czas = String.valueOf(mLicznik_czasu);
+                mLicznik.setVisibility(View.VISIBLE);
+                mLicznik.setText(czas);
+                mLicznik.setTextSize(40);
+//                mLicznik.setTextColor(0xFF0000);
+                mLicznik_czasu = mLicznik_czasu-1;
+                Log.e("Licznik cza", String.valueOf(mLicznik_czasu));
             }
             @Override
             public void onFinish() {
                 mDownTimer.start();
                 showButton();
+                mLicznik_czasu = 5;
+                mLicznik.setVisibility(View.INVISIBLE);
             }
         };
         PoznajPytanieTimer.cancel();

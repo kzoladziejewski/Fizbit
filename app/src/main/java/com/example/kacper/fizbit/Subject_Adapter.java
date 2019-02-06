@@ -53,6 +53,7 @@ public class Subject_Adapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
                     Intent pytania = new Intent(v.getContext(), Question.class);
+                    Log.e("wybrane kato:", String.valueOf(kategoria.get(wybrana_kategoria)));
                     editor.putString("dziedzina",kategoria.get(wybrana_kategoria));
                     editor.apply();
                     v.getContext().startActivity(pytania);
