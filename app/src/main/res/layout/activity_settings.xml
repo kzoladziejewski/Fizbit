@@ -14,7 +14,7 @@
             android:id="@+id/mUstawienia"
             android:layout_width="313dp"
             android:layout_height="59dp"
-            android:layout_below="@+id/mLogo"
+            android:layout_below="@+id/mCorgiScore"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:text="@string/Ustawienia"
@@ -90,7 +90,7 @@
             tools:layout_editor_absoluteY="395dp" />
 
         <ImageView
-            android:id="@+id/mLogo"
+            android:id="@+id/mCorgiScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

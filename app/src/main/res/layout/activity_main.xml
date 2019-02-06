@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/mLogo"
+            android:id="@+id/mCorgiScore"
             android:layout_width="390dp"
             android:layout_height="138dp"
             android:layout_alignParentStart="true"
@@ -32,7 +32,7 @@
             android:text="@string/Graj"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/mCorgiScore" />
 
         <Button
             android:id="@+id/mUstawienia"

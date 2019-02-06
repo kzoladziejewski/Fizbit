@@ -15,7 +15,7 @@
             android:layout_width="371dp"
             android:layout_height="63dp"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/mLogo"
+            android:layout_below="@+id/mCorgiScore"
             android:text="@string/Dziala" />
         <Button
             android:id="@+id/mFizyka"
@@ -27,6 +27,7 @@
 
         <Button
             android:id="@+id/mAstronomia"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="359dp"
             android:layout_height="67dp"
             android:layout_below="@+id/mFizyka"
@@ -44,7 +45,7 @@
             android:text="@string/Powrot" />
 
         <ImageView
-            android:id="@+id/mLogo"
+            android:id="@+id/mCorgiScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

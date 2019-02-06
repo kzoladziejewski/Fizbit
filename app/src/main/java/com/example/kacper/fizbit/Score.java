@@ -8,15 +8,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class Score extends AppCompatActivity {
     TextView mTwojWynik, mX10;
     Button mJeszczeRaz, mPowrot;
     Intent jeszczeRaz, Powrot;
+    ImageView score;
     int wynik;
+    private int[] imageArray;
     SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,7 @@ public class Score extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         this.jeszczeRaz = new Intent(this, Question.class);
         this.Powrot = new Intent(this,Category.class);
-        mTwojWynik = (TextView) findViewById(R.id.mWynik);
-        mX10 = (TextView) findViewById(R.id.mx10);
+
         mJeszczeRaz = (Button) findViewById(R.id.mJeszczeRaz);
         mPowrot = (Button) findViewById(R.id.mPowrot);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
@@ -33,6 +33,20 @@ public class Score extends AppCompatActivity {
         wynik = sharedPreferences.getInt("score",0);
         Log.e("aaaa", String.valueOf(wynik));
 
+        imageArray = new int[11];
+        imageArray[0] = R.drawable.corgi_0;
+        imageArray[1] = R.drawable.corgi_1;
+        imageArray[2] = R.drawable.corgi_2;
+        imageArray[3] = R.drawable.corgi_3;
+        imageArray[4] = R.drawable.corgi_4;
+        imageArray[5] = R.drawable.corgi_5;
+        imageArray[6] = R.drawable.corgi_6;
+        imageArray[7] = R.drawable.corgi_7;
+        imageArray[8] = R.drawable.corgi_8;
+        imageArray[9] = R.drawable.corgi_9;
+        imageArray[10] = R.drawable.corgi_10;
+        score = (ImageView) findViewById(R.id.mCorgiScore);
+        score.setImageResource(imageArray[wynik]);
 
 
         mPowrot.setOnClickListener(new View.OnClickListener() {

@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class Question extends AppCompatActivity {
     TextView pytanie;
-    CountDownTimer mDownTimer, mDownTimer_2, PoznajPytanieTimer;
+    CountDownTimer mDownTimer, mPokazPoprawna, PoznajPytanieTimer;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     ImageView mObrazek;
@@ -42,6 +42,7 @@ public class Question extends AppCompatActivity {
     ArrayList<Questions> pyty = new ArrayList<Questions>();
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
+    Boolean firststart = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +93,8 @@ public class Question extends AppCompatActivity {
         timer.setProgress(0);
 
         timer_1();
-//        timer_2();
         PoznajPytanie();
+        PokazPoprawna();
 
         mA = (Button) findViewById(R.id.mAanswer);
         mB = (Button) findViewById(R.id.mBanswer);
@@ -142,7 +143,6 @@ public class Question extends AppCompatActivity {
     protected void onResume()
     {
         super.onResume();
-        mDownTimer.start();
         PoznajPytanieTimer.start();
     }
 
@@ -163,8 +163,11 @@ public class Question extends AppCompatActivity {
 
     public void NextQuest() {
         checked = false;
-        mDownTimer.cancel();
-        hideButton();
+        if (!firststart)
+        {
+            mDownTimer.cancel();
+    }
+        firststart = false;
         PoznajPytanieTimer.start();
         mObrazek.setVisibility(View.INVISIBLE);
         mObrazek.setBackgroundResource(0);
@@ -176,10 +179,10 @@ public class Question extends AppCompatActivity {
                 mObrazek.setBackgroundResource(pyty.get(indeks_pytania).getSciezka());
             } else {
                 pytanie.setHeight(pytanie.getHeight() + mObrazek.getMaxHeight());
+
             }
             pytanie.setText(pyty.get(indeks_pytania).getPytanie());
             pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
-
             ArrayList<Button> guziki = new ArrayList<>();
 
             guziki.add(mA);
@@ -225,6 +228,8 @@ public class Question extends AppCompatActivity {
 
     public void checkAnswer(String answer, Button correct) {
         checked = true;
+        mDownTimer.cancel();
+        mPokazPoprawna.start();
         blocker();
 
         if (answer.equals(pyty.get(indeks_pytania).getPoprawna())) {
@@ -292,7 +297,6 @@ public class Question extends AppCompatActivity {
                 if (!checked) {
                     checkAnswer("zadnaZNich", dobry);
                 }
-                reset();
 
             }
         };
@@ -303,14 +307,25 @@ public class Question extends AppCompatActivity {
         PoznajPytanieTimer = new CountDownTimer(5000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
             }
-
             @Override
             public void onFinish() {
                 mDownTimer.start();
-//                mDownTimer_2.start();
                 showButton();
+            }
+        };
+        PoznajPytanieTimer.cancel();
+    }
+
+    public void PokazPoprawna() {
+        mPokazPoprawna = new CountDownTimer(1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+            @Override
+            public void onFinish() {
+                reset();
+
             }
         };
         PoznajPytanieTimer.cancel();
