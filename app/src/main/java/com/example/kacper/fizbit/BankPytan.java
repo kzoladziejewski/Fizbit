@@ -144,28 +144,28 @@ public class BankPytan {
             if (level.equals("Latwy")) {
 
 
-        pytania.add(new Questions("Jądro atomowe składa się z:","Protonów, Neutronów, Elektronów","Atomów i elektronów","Protetyków, Neurotyków, Energetyków","Protonów, Neutronów i Elektryków",False, 0);
+        pytania.add(new Questions("Jądro atomowe składa się z:","Protonów, Neutronów, Elektronów","Atomów i elektronów","Protetyków, Neurotyków, Energetyków","Protonów, Neutronów i Elektryków",false, 0);
         pytania.add(new Questions("Dodatni ładunek jądra atomowego to:","Proton","Dodatron","Elektron","Neutron",false,0));
         pytania.add(new Questions("Ujemny ładunek jądra atomowego to:","Elektron","Dodatron","Proton","Neutron",false,0));
         pytania.add(new Questions("Neutralny ładunek jądra atomowego to:","Neutron","Dodatron","Elektron","Proton",false,0));
         pytania.add(new Questions("Elektrony poruszają się po powłokach:","Walencyjnych","Elektrycznych","Energetycznych","Kowalskich",false,0));
         pytania.add(new Questions("Liczba atomowa pierwiastka odpowiada liczbie:","Protonow","Elektronów","Masy","Neutronow",false,0));
         pytania.add(new Questions("'Prawa fizyki są takie same w każdym inercjalnym układzie odniesienia - jest to postulat'","Einsteina","Ulama","Bohra","Newtona",false,0));
-        pytania.add(new Questions("Autorem tego wzoru (teoria względności) jest:","Einstein","Planck","Newton","Bohr",true,R.id.relatywistyczna_energia_spoczynkowa));
-        pytania.add(new Questions("Czym jest E w poniższym wzorze?","Energią","Elektronem","Elektrycznością","Eukaliptusem",true,R.id.relatywistyczna_energia_spoczynkowa));
-        pytania.add(new Questions("Czym jest C w poniższym wzorze?","Prędkością światła","Ilością swiatła [kg]","Prędkością ciepła","Ciepłem",false,R.id.relatywistyczna_energia_spoczynkowa));
-        pytania.add(new Questions("Czym jest M w poniższym wzorze","Masą","Minutami","Multiplekserem","Megawatem",true,relatywistyczna_energia_spoczynkowa));
+        pytania.add(new Questions("Autorem tego wzoru (teoria względności) jest:","Einstein","Planck","Newton","Bohr",true,R.drawable.relatywistyczna_energia_spoczynkowa));
+        pytania.add(new Questions("Czym jest E w poniższym wzorze?","Energią","Elektronem","Elektrycznością","Eukaliptusem",true,R.drawable.relatywistyczna_energia_spoczynkowa));
+        pytania.add(new Questions("Czym jest C w poniższym wzorze?","Prędkością światła","Ilością swiatła [kg]","Prędkością ciepła","Ciepłem",false,R.drawable.relatywistyczna_energia_spoczynkowa));
+        pytania.add(new Questions("Czym jest M w poniższym wzorze","Masą","Minutami","Multiplekserem","Megawatem",true,R.drawable.relatywistyczna_energia_spoczynkowa));
         pytania.add(new Questions("Niekontrolowana reakcja łańcuchowa rozszczepienia ciężkich jąder atomowych to podstawa:","Budowy bomby jądrowej","Budowy zderzacza hadronów","Budowy elektrowni jądrowej","Budowy gwiazdy śmierci",false,0));
         pytania.add(new Questions("Ile jest powłok walencyjnych?","7","2","71","150",false,0));
         pytania.add(new Questions("Ile elektronów mieści się na pierwszej powłoce walencyjnej?","2","5","10","15",false,0));
         pytania.add(new Questions("Który rozpad emituje jądra helu? (2 protony, 2 neutrony)","Rozpad alfa","Rozpad beta minus","Rozpad gamma ","Rozpad beta plus",false,0));
         pytania.add(new Questions("Który rozpad emituje wysokoenergetyczny foton?","Rozpad gamma","Rozpad beta minus","Rozpad alfa","Rozpad beta plus",false,0));
         pytania.add(new Questions("Tylko w bardzo wysokich temperaturach lub po olbrzymim ciśnieniem zachodzi","Fuzja jądrowa","Fuzja tylko protonów","Fuzja tylko elektronów","Fuzja pierwiastków",false,0));
-        pytania.add(new Questions("Poniższy wzór jest wzorem na:","Długość fali","Lambde","Omege kątu","Siłę uderzenia",true,R.id.dlugosc_fali));
-        pytania.add(new Questions("Czym jest h w poniższym wzorze?","Stałą plancka","Wysokością","Odległością","Pierwiastkiem lambdy",true,R.id.dlugosc_fali));
-        pytania.add(new Questions("Poniższy wzór jest wzorem na","Częstotliwość cząsteczki","Długość fali","Energie","Prędkość",true,R.id.czestotliwosc_fj));
-        pytania.add(new Questions("Czym jest E w poniższym wzorze","Energia","Etropią","Enkapsulacja","Elektronem",true,R.id.czestotliwosc_fj));
-        pytania.add(new Questions("Poniższy wzór jest wzorem na","Pęd","Prędkośc","Moc","Energię",true,R.id.ped_jk));
+        pytania.add(new Questions("Poniższy wzór jest wzorem na:","Długość fali","Lambde","Omege kątu","Siłę uderzenia",true,R.drawable.dlugosc_fali));
+        pytania.add(new Questions("Czym jest h w poniższym wzorze?","Stałą plancka","Wysokością","Odległością","Pierwiastkiem lambdy",true,R.drawable.dlugosc_fali));
+        pytania.add(new Questions("Poniższy wzór jest wzorem na","Częstotliwość cząsteczki","Długość fali","Energie","Prędkość",true,R.drawable.czestotliwosc_fj));
+        pytania.add(new Questions("Czym jest E w poniższym wzorze","Energia","Etropią","Enkapsulacja","Elektronem",true,R.drawable.czestotliwosc_fj));
+        pytania.add(new Questions("Poniższy wzór jest wzorem na","Pęd","Prędkośc","Moc","Energię",true,R.drawable.ped_jk));
         pytania.add(new Questions("W jakiej miejscowości na Ukrainie doszło do awarii elektrowni atomowej?","Czarnobyl","Janiepaniemaju","Osłowa","Kijów",false,0));
         pytania.add(new Questions("Jak nazywają się promienie'pokazujące' ludzkie kości? ","Promienie Rentgena","Promienie świetlne","Promienie Hertza","Promienie Boole'a",false,0));
         pytania.add(new Questions("Jak nazywało się japońskie miasto gdzie doszło do awarii elektrowni atomowej?","Fukushima","Hiroszima","Nagasaki","Tokio",false,0));
