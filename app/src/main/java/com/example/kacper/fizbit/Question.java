@@ -169,6 +169,7 @@ public class Question extends AppCompatActivity {
             mDownTimer.cancel();
     }
         firststart = false;
+        mLicznik.setVisibility(View.VISIBLE);
         PoznajPytanieTimer.start();
         hideButton();
         mObrazek.setVisibility(View.INVISIBLE);
@@ -309,12 +310,10 @@ public class Question extends AppCompatActivity {
         PoznajPytanieTimer = new CountDownTimer(5000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                String czas = String.valueOf(mLicznik_czasu);
-                mLicznik.setVisibility(View.VISIBLE);
-                mLicznik.setText(czas);
+                mLicznik.setText(String.valueOf(mLicznik_czasu));
                 mLicznik.setTextSize(40);
-//                mLicznik.setTextColor(0xFF0000);
                 mLicznik_czasu = mLicznik_czasu-1;
+                if (mLicznik_czasu < 0) { mLicznik_czasu=0; }
                 Log.e("Licznik cza", String.valueOf(mLicznik_czasu));
             }
             @Override
