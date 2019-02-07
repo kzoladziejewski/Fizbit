@@ -55,16 +55,16 @@ public class BankPytan {
 
 //        DYNAMIKA
         if (kategoria.equals("Fizyka") && (temat.equals("Dynamika") || temat.equals("xaxa")) ) {
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
-            pytania.add(new Questions("AAAA","A","","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
+            pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>","A","AAAAX\u00B2<sup>10</sup>","","",false,0));
             pytania.add(new Questions("AAAA","A","","","",false,0));
 
         }
@@ -179,7 +179,46 @@ public class BankPytan {
         pytania.add(new Questions("Jak nazywał się amerykański projekt stworzenia bomb atomowych","Projekt Manhattan","Projekt New Jersey","Dolina Krzemowa","Projekt Arizona",false,0));
         pytania.add(new Questions("Termojądrowa synteza lekkich pierwiastków wodoru tworzy","Bombe wodorową","Bombę zapalającą","Bombę kasetonową","Bombe atomową",false,0));
             }
-        }
+
+
+            if (level.equals("Sredni")) {
+
+                pytania.add(new Questions("Poniższy wzór jest wzorem na:","Dylatacje czasu","Dylatacje odległości","Gamme","Różnica czasu ",true,R.drawable.dylatacja_czasu));
+                pytania.add(new Questions("Relacja czasu do przestrzeni:","Oba zjawiska są z sobą powiązane","Jedno jest iloczynem drugiego","Jest równa 1","Oba zjawiska nie są z sobą powiązane",false,0));
+                pytania.add(new Questions("Jaki ruch powoduje skrócenie długości?","Względny","Bezwględny","Szybki","Wolny",false,0));
+                pytania.add(new Questions("Poniższa transformacja to transformacja:","Lorentza","Hertza","Ulama","Hawkinga",true,R.drawable.transformacja_lorentza));
+                pytania.add(new Questions("Strumień energii fal elektromagnetycznych emitowanych przez ciało znajdujące się w temperaturze większej od zera bezwględnego to:","Promieniowanie cieplne","Hipotermia","Promieniowanie radiowe","Światło",false,0));
+                pytania.add(new Questions("Ciało fizyczne pochłaniające całkowicie padające na nie promieniowanie cieplne to:","Ciało doskonale czarne","Grafen","Antymateria","Czarna dziura",false,0));
+                pytania.add(new Questions("Poniższe prawo jest prawem:","Gustava-Kirchoffa","Plancka","Einsteina","Hertza",true,R.drawable.prawo_gustava_kirchoffa));
+                pytania.add(new Questions("Poniższy wzór mówi o:","Stosunku zdolności emisyjnej do absorpcyjnej","Taki wzór nie istnieje","Stosunku zdolności absorpcyjnej do emisyjnej","Idealnym ciele czarnym",true,R.drawable.prawo_gustava_kirchoffa));
+                pytania.add(new Questions("Poniższy wzór przedstawia","Prawo Stefana-Boltzmana","Prawo Gustava Kirchoffa","Wzór na opór","Szybko reakcji rozpadu jąder atomu",true,R.drawable.prawo_stefana_boltzmana));
+                pytania.add(new Questions("Ile wynosi stała Stefana Boltzmana? [J/K]","1.3806*10<sup>-23</sup>","0","13.12*25<sup>123</sup>","Nie ma takiej stałej",false, 0));
+                pytania.add(new Questions("Ile wynosi stała przyspieszenia elektronów Einsteina-Newtona? [km/s]","Nie ma takiej stałej","3.1415","1.777*10<sup>10</sup>","5",false, 0));
+                pytania.add(new Questions("Poniższy wzór to prawo:","Przesunięć Wiena","Gustava-Kirchoffa","Stefana-Boltzmana","Einsteina-Hertza",true, R.drawable.prawo_wiena));
+                pytania.add(new Questions("Poniższa funkcja to funkcja:","Funkcja Kirchoffa","Funkcja logarytmiczna","Funkcja wykładnicza","Funkcja liniowa",true, R.drawable.funkcja_kirchoffa_1));
+                pytania.add(new Questions("Zjawisko jonizacji atomów albo cząsteczek gazu pod wpływem światła to","Fotojonizacja","Jonizacja świetlna","Fotoelektryczność","Fotodiodyzm",false, 0));
+                pytania.add(new Questions("Poniższy wzór wynalazł:","Einstein","Newton","Bohr","Nietsche",true, R.drawable.rownanie_einsteina));
+                pytania.add(new Questions("Zmiana długości fali rozproszonego fotonu to zjawisko","Comptona","Ulama","Hawkinga","Einsteina",false, 0));
+                pytania.add(new Questions("Poniższy wzór dla atomu wodoru to","Wzór Balmera","Wzór Bohra","Wzór Einsteina","Wzór Plancka",true, R.drawable.wzor_balmera));
+                pytania.add(new Questions("Kto stworzył model ciastka z rodzynkami?","Thomson","Rutherford","Bohr","Franck",false, 0));
+                pytania.add(new Questions("Kto odkrył jądro atomowe? (1911)","Rutherford","Thomson","Bohr","Franck",false, 0));
+                pytania.add(new Questions("Podany wzór określa x przy przechodzeniu z jednego stanu energetycznego do drugiego wodoru. Czym jest x?","Częstotliwością","Długością","Energią","Prędkością",true,R.drawable.czestotliwosc_przy_przechodzeniu_przez_stany));
+                pytania.add(new Questions("Jaka nazywana jest cecha według której obiekty kwantowe mogą być falą albo korpuskularne?","Dualizm korpuskalarno-falowy","Promieniotwórczość","Cecha natywna","Nie ma takiej cechy",false, 0));
+                pytania.add(new Questions("Zasada według której niemożliwe jest jednoczesne określenie położenia i pędu cząsteczki to","Zasada nieoznaczoności Heisenberga","Dualizm korpuskalarno-falowy","Zasada wyjątkowości cząsteczki Gamma","Zasada Schrodingera",false, 0));
+                pytania.add(new Questions("Jakie zwierzę 'miał' Schrodinger w skrzyni?","Kota","Psa","Mysz","Węża",false, 0));
+                pytania.add(new Questions("Ile wynosi liczba kwantowa spinu elektronu?","1/2","1/4","1","3.149",false, 0));
+                pytania.add(new Questions("Jakie są 3 podstawowe sieci krystaliczne?","A1,A2,A3","Sieć heksagonalna,oktetowa i decymalna","Sieć sześcienna, ostrosłupowa i granistosłupowa","Sieć protonowa, neutronowa, elektronowa",false, 0));
+                pytania.add(new Questions("Protony i neutrony to:","Nukleony","Bariony","Feriony","Antyelektrony",false, 0));
+                pytania.add(new Questions("Nośnikiem oddziałowywań grawitacyjnych jest:","Grawiton","Grafen","Grawitator","Graw",false, 0));
+                pytania.add(new Questions("Izotopy posiadają","Taką samą liczbę atomową","Taką samą liczbe masową","Taka samą liczbe neutronów","Taką samą budowę i połączeń atom-elektron (p-n)",false, 0));
+                pytania.add(new Questions("Liczby 4 liczby 'magiczne' to:","2,8,20,28","2,4,8,16","2,8,18","2,8,20,40",false, 0));
+                pytania.add(new Questions("Poniższe równanie to:","Synteza lekkich jąder","Synteza ciężkich jąder","Rozpad normalny wodoru","Reakcja termiczna",true, R.drawable.synteza_lekkich_jader));
+                pytania.add(new Questions("Które cząstki są w jądrze atomowym nie będąc częścią składową atomu?","Neutrino","Proton","Elektron","Neutron",false, 0));
+
+            }
+
+            //TRUDNY
+            }
 
 //        MECHANIKA
 

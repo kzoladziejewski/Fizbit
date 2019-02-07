@@ -14,6 +14,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -43,7 +44,7 @@ public class Question extends AppCompatActivity {
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
     Boolean firststart = true;
-    double mLicznik_czasu=6;
+    int mLicznik_czasu=6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -181,7 +182,7 @@ public class Question extends AppCompatActivity {
                 pytanie.setHeight(pytanie.getHeight() + mObrazek.getMaxHeight());
 
             }
-            pytanie.setText(pyty.get(indeks_pytania).getPytanie());
+            pytanie.setText(Html.fromHtml(pyty.get(indeks_pytania).getPytanie()));
             pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
 //            pytanie.setTextSize(getResources().getDimension(R.dimen.fab_margin));
             ArrayList<Button> guziki = new ArrayList<>();
@@ -201,7 +202,7 @@ public class Question extends AppCompatActivity {
             while (guziki.size() != 0) {
                 Random r = new Random();
                 int a = r.nextInt(guziki.size());
-                guziki.get(a).setText(odpowiedzi.get(odpowiedzi.size() - 1));
+                guziki.get(a).setText(Html.fromHtml(odpowiedzi.get(odpowiedzi.size() - 1)));
 
                 if (odpowiedzi.size() == 4) {
                     dobry = guziki.get(a);

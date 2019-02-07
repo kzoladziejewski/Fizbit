@@ -15,7 +15,6 @@ public class Settings extends AppCompatActivity {
     Switch mDzwieki;
     Button mLatwy, mSredni, mTrudny, mPowrot;
     SharedPreferences sharedPreferences;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +26,9 @@ public class Settings extends AppCompatActivity {
         mSredni = (Button) findViewById(R.id.mSredni);
         mTrudny = (Button) findViewById(R.id.mTrudny);
         mPowrot = (Button) findViewById(R.id.mPowrot);
-
-
+        sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
+        String kolorek = sharedPreferences.getString("level","Latwy");
+        koloruj(kolorek);
         mLatwy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,10 +77,34 @@ public class Settings extends AppCompatActivity {
 
     public void zapis(String poziom)
     {
-        sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("level",poziom);
+
+        koloruj(poziom);
         editor.commit();
+
+    }
+
+    public void koloruj(String kolor)
+    {
+        if (kolor.equals("Latwy"))
+        {
+            mLatwy.setBackgroundColor(0xFF00DD00);
+            mSredni.setBackgroundColor(0xFFCCCCCC);
+            mTrudny.setBackgroundColor(0xFFCCCCCC);
+        }
+        if (kolor.equals("Sredni"))
+        {
+            mSredni.setBackgroundColor(0xFF00DD00);
+            mLatwy.setBackgroundColor(0xFFCCCCCC);
+            mTrudny.setBackgroundColor(0xFFCCCCCC);
+        }
+        if (kolor.equals("Trudny"))
+        {
+            mTrudny.setBackgroundColor(0xFF00DD00);
+            mSredni.setBackgroundColor(0xFFCCCCCC);
+            mLatwy.setBackgroundColor(0xFFCCCCCC);
+        }
 
     }
 }
