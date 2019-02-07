@@ -33,5 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(ustawienia,1);
             }
         });
+
+        mWyjscie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
