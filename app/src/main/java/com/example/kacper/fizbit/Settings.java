@@ -2,8 +2,10 @@ package com.example.kacper.fizbit;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
@@ -15,6 +17,7 @@ public class Settings extends AppCompatActivity {
     Switch mDzwieki;
     Button mLatwy, mSredni, mTrudny, mPowrot;
     SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +30,18 @@ public class Settings extends AppCompatActivity {
         mTrudny = (Button) findViewById(R.id.mTrudny);
         mPowrot = (Button) findViewById(R.id.mPowrot);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.poziom_trudnosci);
+        final boolean dzwieki = sharedPreferences.getBoolean("sound", false);
+
+        mDzwieki.setChecked(dzwieki);
         String kolorek = sharedPreferences.getString("level","Latwy");
         koloruj(kolorek);
         mLatwy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano latwy poziom",Toast.LENGTH_SHORT);
+                if (dzwieki){
+                    mp.start();}                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano latwy poziom",Toast.LENGTH_SHORT);
                 toast.show();
                 zapis("Latwy");
             }
@@ -41,6 +50,8 @@ public class Settings extends AppCompatActivity {
         mSredni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (dzwieki){
+                    mp.start();}
                 Toast toast = Toast.makeText(getApplicationContext(),"Wybrano średni poziom",Toast.LENGTH_SHORT);
                 toast.show();
                 zapis("Sredni");
@@ -51,6 +62,8 @@ public class Settings extends AppCompatActivity {
         mTrudny.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (dzwieki){
+                    mp.start();}
                 Toast toast = Toast.makeText(getApplicationContext(),"Wybrano trudny poziom",Toast.LENGTH_SHORT);
                 toast.show();
                 zapis("Trudny");
@@ -65,25 +78,29 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        mDzwieki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putBoolean("sound",mDzwieki.isChecked());
+                Log.e("DZWIEKI", String.valueOf(mDzwieki.isChecked()));
+            }
+        });
     }
 
     @Override
     protected void onDestroy()
     {
-
+        editor.commit();
         super.onDestroy();
-
     }
 
     public void zapis(String poziom)
     {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("level",poziom);
-
         koloruj(poziom);
-        editor.commit();
-
     }
+
 
     public void koloruj(String kolor)
     {

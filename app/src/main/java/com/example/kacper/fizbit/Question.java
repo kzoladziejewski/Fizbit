@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -45,8 +46,11 @@ public class Question extends AppCompatActivity {
     RecyclerView punkciki;
     Boolean firststart = true;
     int mLicznik_czasu=6;
+    MediaPlayer mp;
+    boolean dzwieki;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mp = MediaPlayer.create(this, R.raw.odpowiedz);
 
         pyty = new ArrayList<Questions>();
         punkties = new ArrayList<Punkty>();
@@ -69,6 +73,7 @@ public class Question extends AppCompatActivity {
         String kategoria = sharedPreferences.getString("kategoria", "Fizyka");
         String dziedzina = sharedPreferences.getString("dziedzina", "None");
         String level = sharedPreferences.getString("level", "Latwy");
+        dzwieki = sharedPreferences.getBoolean("sound", false);
 
         sharedPreferences.edit().putString("dziedzina", dziedzina);
 
@@ -185,7 +190,6 @@ public class Question extends AppCompatActivity {
             }
             pytanie.setText(Html.fromHtml(pyty.get(indeks_pytania).getPytanie()));
             pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
-//            pytanie.setTextSize(getResources().getDimension(R.dimen.fab_margin));
             ArrayList<Button> guziki = new ArrayList<>();
 
             guziki.add(mA);
@@ -237,7 +241,10 @@ public class Question extends AppCompatActivity {
 
         if (answer.equals(pyty.get(indeks_pytania).getPoprawna())) {
             correct.setBackgroundColor(Color.GREEN);
-            punkties.get(indeks_pytania).changeColor(Color.GREEN);
+            if (dzwieki) {
+
+                mp.start();
+            }            punkties.get(indeks_pytania).changeColor(Color.GREEN);
             Log.e("PYTANIE", String.valueOf(wynik));
             wynik++;
             Log.e("PYTANIE W CZYM JEST RZECZ", String.valueOf(wynik));

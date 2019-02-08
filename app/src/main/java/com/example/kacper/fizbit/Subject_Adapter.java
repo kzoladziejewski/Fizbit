@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,6 +52,9 @@ public class Subject_Adapter extends RecyclerView.Adapter {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    final boolean dzwieki = preferences.getBoolean("sound", false);
+                    final MediaPlayer mp = MediaPlayer.create(v.getContext(), R.raw.poziom_kategoria);
+                    if (dzwieki){mp.start();}
                     int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
                     Intent pytania = new Intent(v.getContext(), Question.class);
                     Log.e("wybrane kato:", String.valueOf(kategoria.get(wybrana_kategoria)));

@@ -39,16 +39,51 @@ public class BankPytan {
                 pytania.add(new Questions( "Jak nazywamy obszar w którym działają siły elektryczne?", "Polem elektrycznym", "Dworem elektrycznym", "Elektrownią", "Miejscem prądu",  false, 0));
                 pytania.add(new Questions( "Pole elektrostatyczne występuje gdy...", "...ładunki nie poruszają się", "...ładunki są dynamiczne", "...jest prąd", "...wszystkie ładunku są takie same",  false, 0));
                 pytania.add(new Questions( "Uporządkowany ruch elektronów to inaczej?", "Prąd elektryczny", "Napięcie", "Natęzenie", "Prąd dynamiczny",  false, 0));
-                pytania.add(new Questions( "Jak nazywają się materiały dobrze przwodzące prąd?", "Przewodnik", "Izolator", "Nielubiany kolega", "Półprzewodnik",  false, 0));
+                pytania.add(new Questions( "Jak nazywają się materiały dobrze przewodzące prąd?", "Przewodnik", "Izolator", "Nielubiany kolega", "Półprzewodnik",  false, 0));
+                //HANIA
+                pytania.add(new Questions("Elektroda dodatnia to"," Anod"," Katod"," Mod"," Brod",false,0));
+                        pytania.add(new Questions("Co się dzieje z napięciem, kiedy zwiększy się opór"," Zwiększy si"," Zmniejszy si"," Zostanie stał"," Nie można zwiększyć opor",false,0));
+                                pytania.add(new Questions(" Jak oblicza się rezystancję zastępczą rezystorów w połączeniu szeregowym"," R1+R"," R1-R"," (R1+R2) *1/"," 100 * (R1+R2) – 3",false,0));
+                                        pytania.add(new Questions(" Jak oblicza się rezystancję zastępczą w połączeniu równoległym"," (R1*R2) : (R1+R2"," R1+R"," R1-R"," (R1+R2) *1/",false,0));
+                                                pytania.add(new Questions(" D jakiej grupy należą rezystory"," Elementy biern"," Elementy czynn"," Elementy pozorn"," Elementy naturaln",false,0));
+                                                        pytania.add(new Questions(" Polaryzacja to"," Nadanie biegunowośc"," Obszar o podwyższonej rezystancj"," Opó"," Metoda całkowani",false,0));
+                                                                pytania.add(new Questions(" Elektryzowanie ciał przez indukcję polega na"," Swobodnym poruszaniu się cząsteczek wewnątrz ciał"," Przemieszczenie się elektronów pierwszego ciała na drugie ciał"," Podpalenie dwóch cia"," Dotknięcie się dwóch cia",false,0));
+
             }
 
             //SREDNIA
             if (level.equals("Sredni")) {
+                //hania
+                pytania.add(new Questions("W którym typie tranzystora do kolektora zapodaje się dodatni biegun źródła napięcia"," NP"," PN"," PP"," NN",false,0));
+                        pytania.add(new Questions("Kreska w symbolu elektronicznym diody to"," Katod"," Anod"," Mod"," Diod",false,0));
+                                pytania.add(new Questions(" Urządzeniem odpowiedzialnym za zmianę sposobu transmisji równoległej na transmisję szeregową sygnału cyfrowego jest"," Multiplekse"," Dekode"," Enkode"," Demultiplekse",false,0));
+                                        pytania.add(new Questions(" Co to jest fotorezystor"," Element, którego rezystancja zależy od światł"," Rodzaj diod"," Kamerk"," Rezystor, który robi zdjęci",false,0));
+                                                pytania.add(new Questions(" Czy w parametrach rezystora występuje współczynnik szumów"," Ta"," Ni"," Zależy od rezystor"," Różnie byw",false,0));
+                                                        pytania.add(new Questions(" Która z poniższych wielkości nie jest przewodnością elektryczną"," Reaktancj"," Konduktancj"," Admitancj"," Susceptancj",false,0));
+                                                                pytania.add(new Questions(" Linie siła pola elektrostatycznego są to linie wzdłuż których poruszałby się ładunek dodatni"," Gdyby miał swobodę ruch"," Gdyby był wiotk"," Gdyby był lekk"," Gdyby był ciężk",false,0));
+                                                                        pytania.add(new Questions(" Napięcie między punktami A i B w polu elektrostatycznym określa"," Pracę przeniesienia ładunku jednostkowego miedzy tymi punktam"," Pracę podniesienia ładunku jednostkoweg"," Słabe pol"," Silne pol",false,0));
+                                                                                pytania.add(new Questions(" Zwrot linii sił pola jest taki jak zwrot "," Siły działającej na ładunek dodatn"," Siły działającej na ładunek ujem"," Siły działającej na ładunek obojętn"," Żadna odpowiedź nie jest prawidłow",false,0));
+
             }
             //TRUDNA
             if (level.equals("Trudny")) {
 //                poziom="Trudny";
                 pytania.add(new Questions("Kim jest osoba na obrazku?","William Gilbert","Heinrich Herz","Isaac Newton","Rober Boyle",true,R.drawable.williamgillber));
+                pytania.add(new Questions("Jaki prąd popłynie przez przewodnik w którym znajduje się rezystor o oporności 100ohm przy napięciu 100V"," 1 "," 100 "," 10 "," 0,1 ",false,0));
+                        pytania.add(new Questions("Czy guma przewodzi prąd"," Ni"," Tak"," Zależy od natężenia prąd"," Zależy od napięcia prąd",false,0));
+                                pytania.add(new Questions("Sprawny kondensator elektrolityczny"," Nie przewodzi prąd"," Przewodzi prą"," W zależności od ustawień przewodzi prąd lub ni"," Służy do zmiany natężenia prąd",false,0));
+                                        pytania.add(new Questions("Kiedy transformator podwyższa napięcie"," kiedy liczba zwojów po stronie uzwojenia pierwotnego jest mniejsza niż po stronie uzwojenia wtórneg"," kiedy liczba zwojów po stronie uzwojenia pierwotnego jest większa niż po stronie uzwojenia wtórneg"," kiedy liczba zwojów po stronie uzwojenia pierwotnego jest taka sama jak po stronie uzwojenia wtórneg"," nigd",false,0));
+                                                pytania.add(new Questions("Transformator działa z prądem"," Zmienny"," Stały"," Półstały"," Żadnym",false,0));
+                                                        pytania.add(new Questions(" Jeżeli mikroprocesor taktowany jest zegarem o częstotliwości 2,5 MHz to oznacza że w czasie sekundy jest w stanie wykonać.."," 2 500 000 operacji logicznyc"," 5 000 000 operacji logicznyc"," 2 500 operacji logicznyc"," 25 operacji logicznyc",false,0));
+                                                                pytania.add(new Questions(" Stosunek ilości zwojów uzwojenia pierwotnego do ilości zwojów uzwojenia wtórnego w transformatorze nazywa się"," Przekładni"," Przełożenie"," Modułem transformator"," Transformat",false,0));
+                                                                        pytania.add(new Questions(" Jak nazywa się element półprzewodnikowy wykorzystujący zjawisko przebicia lawinowego"," Dioda Zener"," Dioda LE"," Dioda prostownicz"," Lampa elektronow",false,0));
+                                                                                pytania.add(new Questions(" Podstawową parą pierwiastków z których wykonywane są elementy półprzewodnikowe są"," Krzem (Si) i german (Ge"," Żelazo (Fe) i srebro (Ag"," German (Ge) i żelazo (Fe"," Krzem (Si) i srebro (Ag",false,0));
+                                                                                        pytania.add(new Questions(" W praktyce rezystor bardziej stawia opór gdy jest"," Cienk"," Grub"," Kolorow"," Czarn",false,0));
+                                                                                                pytania.add(new Questions(" Rezystancja liniowego rezystora zależy również od"," Temperatur"," Światł"," Ciśnienia atmosferyczneg"," Hałas",false,0));
+                                                                                                        pytania.add(new Questions(" Która z poniższych wielkości NIE JEST oporem elektrycznym"," Susceptancj"," Impedancj"," Reaktancj"," Rezystancj",false,0));
+                                                                                                                pytania.add(new Questions(" W półprzewodniku typu p nośnikami prądu są"," Akceptor"," Elektron"," Donor"," Godnor",false,0));
+                                                                                                                        pytania.add(new Questions(" Wzór mocy pozornej"," S=U*"," U=J*"," J=U*"," Z=G*",false,0));
+
             }
             }
 
