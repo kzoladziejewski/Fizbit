@@ -8,15 +8,16 @@ import android.graphics.Color;
 
 public class Punkty {
     int colors;
-    public Punkty(int color)
-    {
+
+    public Punkty(int color) {
         this.colors = color;
     }
 
-    public void changeColor(int kolor)
-    {
+    public void changeColor(int kolor) {
         colors = kolor;
     }
 
-    public int getColors(){return colors;}
+    public int getColors() {
+        return colors;
+    }
 }

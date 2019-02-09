@@ -19,18 +19,19 @@ public class Score extends AppCompatActivity {
     int wynik;
     private int[] imageArray;
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         this.jeszczeRaz = new Intent(this, Question.class);
-        this.Powrot = new Intent(this,Category.class);
+        this.Powrot = new Intent(this, Category.class);
 
         mJeszczeRaz = (Button) findViewById(R.id.mJeszczeRaz);
         mPowrot = (Button) findViewById(R.id.mPowrot);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
-        Log.e("Problemy psychiczne są tutaj:", String.valueOf(sharedPreferences.getInt("score",0)));
-        wynik = sharedPreferences.getInt("score",0);
+        Log.e("Problemy psychiczne są tutaj:", String.valueOf(sharedPreferences.getInt("score", 0)));
+        wynik = sharedPreferences.getInt("score", 0);
         Log.e("aaaa", String.valueOf(wynik));
 
         imageArray = new int[11];
@@ -54,7 +55,7 @@ public class Score extends AppCompatActivity {
             public void onClick(View v) {
 
                 finish();
-                startActivityForResult(Powrot,1);
+                startActivityForResult(Powrot, 1);
             }
         });
 

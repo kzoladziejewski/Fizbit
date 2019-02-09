@@ -18,6 +18,7 @@ public class Settings extends AppCompatActivity {
     Button mLatwy, mSredni, mTrudny, mPowrot;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +36,15 @@ public class Settings extends AppCompatActivity {
         final boolean dzwieki = sharedPreferences.getBoolean("sound", false);
 
         mDzwieki.setChecked(dzwieki);
-        String kolorek = sharedPreferences.getString("level","Latwy");
+        String kolorek = sharedPreferences.getString("level", "Latwy");
         koloruj(kolorek);
         mLatwy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dzwieki){
-                    mp.start();}                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano latwy poziom",Toast.LENGTH_SHORT);
+                if (dzwieki) {
+                    mp.start();
+                }
+                Toast toast = Toast.makeText(getApplicationContext(), "Wybrano latwy poziom", Toast.LENGTH_SHORT);
                 toast.show();
                 zapis("Latwy");
             }
@@ -50,9 +53,10 @@ public class Settings extends AppCompatActivity {
         mSredni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dzwieki){
-                    mp.start();}
-                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano średni poziom",Toast.LENGTH_SHORT);
+                if (dzwieki) {
+                    mp.start();
+                }
+                Toast toast = Toast.makeText(getApplicationContext(), "Wybrano średni poziom", Toast.LENGTH_SHORT);
                 toast.show();
                 zapis("Sredni");
 
@@ -62,9 +66,10 @@ public class Settings extends AppCompatActivity {
         mTrudny.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dzwieki){
-                    mp.start();}
-                Toast toast = Toast.makeText(getApplicationContext(),"Wybrano trudny poziom",Toast.LENGTH_SHORT);
+                if (dzwieki) {
+                    mp.start();
+                }
+                Toast toast = Toast.makeText(getApplicationContext(), "Wybrano trudny poziom", Toast.LENGTH_SHORT);
                 toast.show();
                 zapis("Trudny");
 
@@ -81,43 +86,37 @@ public class Settings extends AppCompatActivity {
         mDzwieki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putBoolean("sound",mDzwieki.isChecked());
+                editor.putBoolean("sound", mDzwieki.isChecked());
                 Log.e("DZWIEKI", String.valueOf(mDzwieki.isChecked()));
             }
         });
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         editor.commit();
         super.onDestroy();
     }
 
-    public void zapis(String poziom)
-    {
+    public void zapis(String poziom) {
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("level",poziom);
+        editor.putString("level", poziom);
         koloruj(poziom);
     }
 
 
-    public void koloruj(String kolor)
-    {
-        if (kolor.equals("Latwy"))
-        {
+    public void koloruj(String kolor) {
+        if (kolor.equals("Latwy")) {
             mLatwy.setBackgroundColor(0xFF00DD00);
             mSredni.setBackgroundColor(0xFFCCCCCC);
             mTrudny.setBackgroundColor(0xFFCCCCCC);
         }
-        if (kolor.equals("Sredni"))
-        {
+        if (kolor.equals("Sredni")) {
             mSredni.setBackgroundColor(0xFF00DD00);
             mLatwy.setBackgroundColor(0xFFCCCCCC);
             mTrudny.setBackgroundColor(0xFFCCCCCC);
         }
-        if (kolor.equals("Trudny"))
-        {
+        if (kolor.equals("Trudny")) {
             mTrudny.setBackgroundColor(0xFF00DD00);
             mSredni.setBackgroundColor(0xFFCCCCCC);
             mLatwy.setBackgroundColor(0xFFCCCCCC);

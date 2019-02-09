@@ -28,42 +28,46 @@ public class Category extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-    subject = new Intent(this,Subject.class);
-    mFizyka = (Button) findViewById(R.id.mFizyka);
-    mAstronomia = (Button) findViewById(R.id.mAstronomia);
-    mPowrot = (Button) findViewById(R.id.mPowrot);
-    mPodkategoria = (TextView) findViewById(R.id.mKategoria);
-    mPodkategoria.setGravity(Gravity.CENTER | Gravity.BOTTOM);
-    mPodkategoria.setTextSize(30);
-    final MediaPlayer mp = MediaPlayer.create(this, R.raw.poziom_kategoria);
+        subject = new Intent(this, Subject.class);
+        mFizyka = (Button) findViewById(R.id.mFizyka);
+        mAstronomia = (Button) findViewById(R.id.mAstronomia);
+        mPowrot = (Button) findViewById(R.id.mPowrot);
+        mPodkategoria = (TextView) findViewById(R.id.mKategoria);
+        mPodkategoria.setGravity(Gravity.CENTER | Gravity.BOTTOM);
+        mPodkategoria.setTextSize(30);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.poziom_kategoria);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
 
         final boolean dzwieki = sharedPreferences.getBoolean("sound", false);
 
-    mFizyka.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            subject.putExtra("kategoria","fizyka");
-            startActivityForResult(subject,1);
-            if (dzwieki){mp.start();}
-        }
-    });
+        mFizyka.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                subject.putExtra("kategoria", "fizyka");
+                startActivityForResult(subject, 1);
+                if (dzwieki) {
+                    mp.start();
+                }
+            }
+        });
 
-    mAstronomia.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            subject.putExtra("kategoria","astronomia");
-            startActivityForResult(subject,1);
-            if (dzwieki){mp.start();}
-        }
-    });
+        mAstronomia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                subject.putExtra("kategoria", "astronomia");
+                startActivityForResult(subject, 1);
+                if (dzwieki) {
+                    mp.start();
+                }
+            }
+        });
 
-    mPowrot.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            finish();
-        }
-    });
+        mPowrot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 }

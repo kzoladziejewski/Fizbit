@@ -45,9 +45,10 @@ public class Question extends AppCompatActivity {
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
     Boolean firststart = true;
-    int mLicznik_czasu=6;
+    int mLicznik_czasu = 6;
     MediaPlayer mp;
     boolean dzwieki;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mp = MediaPlayer.create(this, R.raw.odpowiedz);
@@ -146,8 +147,7 @@ public class Question extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         PoznajPytanieTimer.start();
     }
@@ -169,10 +169,9 @@ public class Question extends AppCompatActivity {
 
     public void NextQuest() {
         checked = false;
-        if (!firststart)
-        {
+        if (!firststart) {
             mDownTimer.cancel();
-    }
+        }
         firststart = false;
         mLicznik.setVisibility(View.VISIBLE);
         PoznajPytanieTimer.start();
@@ -244,7 +243,8 @@ public class Question extends AppCompatActivity {
             if (dzwieki) {
 
                 mp.start();
-            }            punkties.get(indeks_pytania).changeColor(Color.GREEN);
+            }
+            punkties.get(indeks_pytania).changeColor(Color.GREEN);
             Log.e("PYTANIE", String.valueOf(wynik));
             wynik++;
             Log.e("PYTANIE W CZYM JEST RZECZ", String.valueOf(wynik));
@@ -278,15 +278,15 @@ public class Question extends AppCompatActivity {
 
         NextQuest();
     }
-    public void showButton()
-    {
+
+    public void showButton() {
         mA.setVisibility(View.VISIBLE);
         mB.setVisibility(View.VISIBLE);
         mC.setVisibility(View.VISIBLE);
         mD.setVisibility(View.VISIBLE);
     }
-    public void hideButton()
-    {
+
+    public void hideButton() {
         mA.setVisibility(View.INVISIBLE);
         mB.setVisibility(View.INVISIBLE);
         mC.setVisibility(View.INVISIBLE);
@@ -319,10 +319,13 @@ public class Question extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mLicznik.setText(String.valueOf(mLicznik_czasu));
                 mLicznik.setTextSize(40);
-                mLicznik_czasu = mLicznik_czasu-1;
-                if (mLicznik_czasu < 0) { mLicznik_czasu=0; }
+                mLicznik_czasu = mLicznik_czasu - 1;
+                if (mLicznik_czasu < 0) {
+                    mLicznik_czasu = 0;
+                }
                 Log.e("Licznik cza", String.valueOf(mLicznik_czasu));
             }
+
             @Override
             public void onFinish() {
                 mDownTimer.start();
@@ -339,6 +342,7 @@ public class Question extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
             }
+
             @Override
             public void onFinish() {
                 reset();

@@ -36,9 +36,9 @@ public class Subject_Adapter extends RecyclerView.Adapter {
     }
 
     public Subject_Adapter(ArrayList<String> kategoria, RecyclerView temats, Context context) {
-        Log.e("Udalo sie","aa");
-        this.kategoria=kategoria;
-        this.mRecyclerView=temats;
+        Log.e("Udalo sie", "aa");
+        this.kategoria = kategoria;
+        this.mRecyclerView = temats;
         this.ctx = context;
         preferences = ctx.getSharedPreferences("fizbit", Activity.MODE_PRIVATE);
         editor = preferences.edit();
@@ -49,20 +49,22 @@ public class Subject_Adapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.subject_adapter, parent, false);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final boolean dzwieki = preferences.getBoolean("sound", false);
-                    final MediaPlayer mp = MediaPlayer.create(v.getContext(), R.raw.poziom_kategoria);
-                    if (dzwieki){mp.start();}
-                    int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
-                    Intent pytania = new Intent(v.getContext(), Question.class);
-                    Log.e("wybrane kato:", String.valueOf(kategoria.get(wybrana_kategoria)));
-                    editor.putString("dziedzina",kategoria.get(wybrana_kategoria));
-                    editor.apply();
-                    v.getContext().startActivity(pytania);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final boolean dzwieki = preferences.getBoolean("sound", false);
+                final MediaPlayer mp = MediaPlayer.create(v.getContext(), R.raw.poziom_kategoria);
+                if (dzwieki) {
+                    mp.start();
                 }
-            });
+                int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
+                Intent pytania = new Intent(v.getContext(), Question.class);
+                Log.e("wybrane kato:", String.valueOf(kategoria.get(wybrana_kategoria)));
+                editor.putString("dziedzina", kategoria.get(wybrana_kategoria));
+                editor.apply();
+                v.getContext().startActivity(pytania);
+            }
+        });
         return new MyViewHolder(view);
 
 
@@ -71,7 +73,7 @@ public class Subject_Adapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         String article = kategoria.get(position);
-        Log.e("Kategoria",article);
+        Log.e("Kategoria", article);
         ((MyViewHolder) holder).kategoriaText.setText(article);
     }
 

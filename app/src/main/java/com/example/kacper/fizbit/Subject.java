@@ -21,6 +21,7 @@ public class Subject extends AppCompatActivity {
     RecyclerView temats;
     ArrayList<String> kategoria_magazyn = new ArrayList<>();
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +36,10 @@ public class Subject extends AppCompatActivity {
         temats.setItemAnimator(new DefaultItemAnimator());
         String kategoria = getIntent().getStringExtra("kategoria");
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
-        sharedPreferences.edit().putString("kategoria",kategoria);
+        sharedPreferences.edit().putString("kategoria", kategoria);
         sharedPreferences.edit().apply();
 
-        if (kategoria.contains("fizyka"))
-        {
+        if (kategoria.contains("fizyka")) {
             kategoria_magazyn.add("Całość");
             kategoria_magazyn.add("Elektrycznosc");
             kategoria_magazyn.add("Dynamika");
@@ -48,15 +48,14 @@ public class Subject extends AppCompatActivity {
             kategoria_magazyn.add("Mechanika");
 
         }
-        if (kategoria.contains("astronomia"))
-        {
+        if (kategoria.contains("astronomia")) {
             kategoria_magazyn.add("Całość");
             kategoria_magazyn.add("Planety");
             kategoria_magazyn.add("Heliocentryzm");
 
 
         }
-        Log.e("kategoria",kategoria);
+        Log.e("kategoria", kategoria);
         Log.e("kategoria", String.valueOf(kategoria_magazyn));
         temats.setAdapter(new Subject_Adapter(kategoria_magazyn, temats, getApplicationContext()));
 
