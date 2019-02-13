@@ -43,7 +43,7 @@ public class Category extends AppCompatActivity {
         mFizyka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subject.putExtra("kategoria", "fizyka");
+                subject.putExtra("kategoria", "Fizyka");
                 startActivityForResult(subject, 1);
                 if (dzwieki) {
                     mp.start();
@@ -54,7 +54,7 @@ public class Category extends AppCompatActivity {
         mAstronomia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subject.putExtra("kategoria", "astronomia");
+                subject.putExtra("kategoria", "Astronomia");
                 startActivityForResult(subject, 1);
                 if (dzwieki) {
                     mp.start();

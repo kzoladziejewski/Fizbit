@@ -46,7 +46,7 @@ public class Settings extends AppCompatActivity {
                 }
                 Toast toast = Toast.makeText(getApplicationContext(), "Wybrano latwy poziom", Toast.LENGTH_SHORT);
                 toast.show();
-                zapis("Latwy");
+                zapis("Latwy", 5000);
             }
         });
 
@@ -58,7 +58,7 @@ public class Settings extends AppCompatActivity {
                 }
                 Toast toast = Toast.makeText(getApplicationContext(), "Wybrano średni poziom", Toast.LENGTH_SHORT);
                 toast.show();
-                zapis("Sredni");
+                zapis("Sredni", 7500);
 
             }
         });
@@ -71,7 +71,7 @@ public class Settings extends AppCompatActivity {
                 }
                 Toast toast = Toast.makeText(getApplicationContext(), "Wybrano trudny poziom", Toast.LENGTH_SHORT);
                 toast.show();
-                zapis("Trudny");
+                zapis("Trudny", 10000);
 
             }
         });
@@ -98,28 +98,30 @@ public class Settings extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void zapis(String poziom) {
+    public void zapis(String poziom, int czas) {
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("level", poziom);
+        editor.putInt("time", czas);
+
         koloruj(poziom);
     }
 
 
     public void koloruj(String kolor) {
         if (kolor.equals("Latwy")) {
-            mLatwy.setBackgroundColor(0xFF00DD00);
-            mSredni.setBackgroundColor(0xFFCCCCCC);
-            mTrudny.setBackgroundColor(0xFFCCCCCC);
+            mLatwy.setBackgroundResource(R.drawable.guzik_latwy_wcisniety);
+            mSredni.setBackgroundResource(R.drawable.guzik_sredni_nie_wcisniety);
+            mTrudny.setBackgroundResource(R.drawable.guzik_trudny_nie_wcisniety);
         }
         if (kolor.equals("Sredni")) {
-            mSredni.setBackgroundColor(0xFF00DD00);
-            mLatwy.setBackgroundColor(0xFFCCCCCC);
-            mTrudny.setBackgroundColor(0xFFCCCCCC);
+            mLatwy.setBackgroundResource(R.drawable.guzik_latwy_nie_wcisniety);
+            mSredni.setBackgroundResource(R.drawable.guzik_sredni_wcisniety);
+            mTrudny.setBackgroundResource(R.drawable.guzik_trudny_nie_wcisniety);
         }
         if (kolor.equals("Trudny")) {
-            mTrudny.setBackgroundColor(0xFF00DD00);
-            mSredni.setBackgroundColor(0xFFCCCCCC);
-            mLatwy.setBackgroundColor(0xFFCCCCCC);
+            mLatwy.setBackgroundResource(R.drawable.guzik_latwy_nie_wcisniety);
+            mSredni.setBackgroundResource(R.drawable.guzik_sredni_nie_wcisniety);
+            mTrudny.setBackgroundResource(R.drawable.guzik_trudny_wcisniety);
         }
 
     }

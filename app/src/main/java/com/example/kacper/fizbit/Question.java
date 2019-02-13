@@ -45,7 +45,7 @@ public class Question extends AppCompatActivity {
     ArrayList<Punkty> punkties = new ArrayList<Punkty>();
     RecyclerView punkciki;
     Boolean firststart = true;
-    int mLicznik_czasu = 6;
+    int mLicznik_czasu = 6, czas;
     MediaPlayer mp;
     boolean dzwieki;
 
@@ -75,9 +75,11 @@ public class Question extends AppCompatActivity {
         String dziedzina = sharedPreferences.getString("dziedzina", "None");
         String level = sharedPreferences.getString("level", "Latwy");
         dzwieki = sharedPreferences.getBoolean("sound", false);
-
+        czas = sharedPreferences.getInt("time", 5000);
         sharedPreferences.edit().putString("dziedzina", dziedzina);
-
+        Log.e("Question", kategoria);
+        Log.e("Question", dziedzina);
+        Log.e("Question", level);
         bankPytan = new BankPytan(kategoria, dziedzina, level);
         int a = 0;
         while (a != 10) {
@@ -294,11 +296,11 @@ public class Question extends AppCompatActivity {
     }
 
     public void timer_1() {
-        mDownTimer = new CountDownTimer(5000, 100) {
+        mDownTimer = new CountDownTimer(czas, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
                 i++;
-                timer.setProgress((int) i * 100 / (5000 / 100));
+                timer.setProgress((int) i * 100 / (czas / 100));
             }
 
             @Override

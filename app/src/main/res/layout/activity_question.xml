@@ -16,9 +16,9 @@
             android:layout_height="75dp"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/mTimer"
-            android:text="TextView"/>
-            <!--tools:layout_editor_absoluteX="16dp"-->
-                <!--tools:layout_editor_absoluteY="16dp" />-->
+            android:text="TextView" />
+        <!--tools:layout_editor_absoluteX="16dp"-->
+        <!--tools:layout_editor_absoluteY="16dp" />-->
 
         <ProgressBar
             android:id="@+id/mTimer"
@@ -40,10 +40,10 @@
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/mDanswer"
             android:text="@string/A"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toTopOf="@+id/mCanswer"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mTimer"
-            android:textAllCaps="false" />
+            app:layout_constraintTop_toBottomOf="@+id/mTimer" />
 
         <Button
             android:id="@+id/mBanswer"
@@ -61,8 +61,8 @@
             android:layout_alignEnd="@+id/mPytanie"
             android:layout_below="@+id/mAanswer"
             android:text="@string/D"
-            tools:layout_editor_absoluteX="193dp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            tools:layout_editor_absoluteX="193dp" />
 
         <Button
             android:id="@+id/mCanswer"
@@ -70,8 +70,8 @@
             android:layout_height="90dp"
             android:layout_below="@+id/mBanswer"
             android:layout_toStartOf="@+id/mDanswer"
-            android:textAllCaps="false"
             android:text="@string/C"
+            android:textAllCaps="false"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="324dp" />
 

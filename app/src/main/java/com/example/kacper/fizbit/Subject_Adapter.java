@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class Subject_Adapter extends RecyclerView.Adapter {
     private ArrayList<String> kategoria = new ArrayList<String>();
+    String przedmiot;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     Context ctx;
@@ -35,11 +36,12 @@ public class Subject_Adapter extends RecyclerView.Adapter {
         }
     }
 
-    public Subject_Adapter(ArrayList<String> kategoria, RecyclerView temats, Context context) {
+    public Subject_Adapter(ArrayList<String> kategoria, String przedmiot, RecyclerView temats, Context context) {
         Log.e("Udalo sie", "aa");
         this.kategoria = kategoria;
         this.mRecyclerView = temats;
         this.ctx = context;
+        this.przedmiot = przedmiot;
         preferences = ctx.getSharedPreferences("fizbit", Activity.MODE_PRIVATE);
         editor = preferences.edit();
     }
@@ -60,6 +62,7 @@ public class Subject_Adapter extends RecyclerView.Adapter {
                 int wybrana_kategoria = mRecyclerView.getChildAdapterPosition(v);
                 Intent pytania = new Intent(v.getContext(), Question.class);
                 Log.e("wybrane kato:", String.valueOf(kategoria.get(wybrana_kategoria)));
+                editor.putString("kategoria", przedmiot);
                 editor.putString("dziedzina", kategoria.get(wybrana_kategoria));
                 editor.apply();
                 v.getContext().startActivity(pytania);

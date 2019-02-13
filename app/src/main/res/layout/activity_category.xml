@@ -17,13 +17,14 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/mCorgiScore"
             android:text="@string/Dziala" />
+
         <Button
             android:id="@+id/mFizyka"
             android:layout_width="359dp"
             android:layout_height="67dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="@string/Fizyka" />
+            android:background="@drawable/guzik_fizyka" />
 
         <Button
             android:id="@+id/mAstronomia"
@@ -33,16 +34,16 @@
             android:layout_below="@+id/mFizyka"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="29dp"
-            android:text="@string/Astronomia" />
+            android:background="@drawable/guzik_astronomia" />
 
         <Button
             android:id="@+id/mPowrot"
             android:layout_width="357dp"
             android:layout_height="58dp"
+            android:layout_alignEnd="@+id/mAstronomia"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/mAstronomia"
-            android:layout_marginBottom="30dp"
-            android:text="@string/Powrot" />
+            android:layout_marginBottom="29dp"
+            android:background="@drawable/guzik_powrot" />
 
         <ImageView
             android:id="@+id/mCorgiScore"

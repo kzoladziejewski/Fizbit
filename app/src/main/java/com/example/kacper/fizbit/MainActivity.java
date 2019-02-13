@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Log.e("DZWIEKI MAINA", String.valueOf(dzwieki));
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.test);
         final MediaPlayer ustawienia_s = MediaPlayer.create(this, R.raw.ustawienia);
+        mGraj.setBackgroundResource(R.drawable.guzik_graj);
+        mUstawienia.setBackgroundResource(R.drawable.guzik_ustawienia);
+        mWyjscie.setBackgroundResource(R.drawable.guzik_wyjscie);
         mGraj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

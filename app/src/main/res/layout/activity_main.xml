@@ -29,7 +29,6 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="174dp"
-            android:text="@string/Graj"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mCorgiScore" />
@@ -41,7 +40,6 @@
             android:layout_below="@+id/mGraj"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="54dp"
-            android:text="@string/Ustawienia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mGraj" />
@@ -53,7 +51,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/mUstawienia"
             android:layout_marginBottom="38dp"
-            android:text="@string/Wyjscie"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
