@@ -32,7 +32,7 @@ public class Settings extends AppCompatActivity {
         mPowrot = (Button) findViewById(R.id.mPowrot);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.poziom_trudnosci);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.klik);
         final boolean dzwieki = sharedPreferences.getBoolean("sound", false);
 
         mDzwieki.setChecked(dzwieki);

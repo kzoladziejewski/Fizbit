@@ -35,7 +35,7 @@ public class Category extends AppCompatActivity {
         mPodkategoria = (TextView) findViewById(R.id.mKategoria);
         mPodkategoria.setGravity(Gravity.CENTER | Gravity.BOTTOM);
         mPodkategoria.setTextSize(30);
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.poziom_kategoria);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.klik);
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
 
         final boolean dzwieki = sharedPreferences.getBoolean("sound", false);

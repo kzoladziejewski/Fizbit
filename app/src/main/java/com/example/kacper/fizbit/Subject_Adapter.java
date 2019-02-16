@@ -55,7 +55,7 @@ public class Subject_Adapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 final boolean dzwieki = preferences.getBoolean("sound", false);
-                final MediaPlayer mp = MediaPlayer.create(v.getContext(), R.raw.poziom_kategoria);
+                final MediaPlayer mp = MediaPlayer.create(v.getContext(), R.raw.klik);
                 if (dzwieki) {
                     mp.start();
                 }

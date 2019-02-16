@@ -46,12 +46,11 @@ public class Question extends AppCompatActivity {
     RecyclerView punkciki;
     Boolean firststart = true;
     int mLicznik_czasu = 6, czas;
-    MediaPlayer mp;
+    MediaPlayer mp, badsound;
     boolean dzwieki;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mp = MediaPlayer.create(this, R.raw.odpowiedz);
 
         pyty = new ArrayList<Questions>();
         punkties = new ArrayList<Punkty>();
@@ -76,10 +75,20 @@ public class Question extends AppCompatActivity {
         String level = sharedPreferences.getString("level", "Latwy");
         dzwieki = sharedPreferences.getBoolean("sound", false);
         czas = sharedPreferences.getInt("time", 5000);
+
         sharedPreferences.edit().putString("dziedzina", dziedzina);
-        Log.e("Question", kategoria);
-        Log.e("Question", dziedzina);
-        Log.e("Question", level);
+
+
+        if (level.equals("Latwy")) {
+            mp = MediaPlayer.create(this, R.raw.dobra_odp_latwy);
+        }
+        if (level.equals("Sredni")) {
+            mp = MediaPlayer.create(this, R.raw.dobra_odp_sredni);
+        }
+        if (level.equals("Trudny")) {
+            mp = MediaPlayer.create(this, R.raw.dobra_odp_trudny);
+        }
+        badsound = MediaPlayer.create(this, R.raw.zla_odp);
         bankPytan = new BankPytan(kategoria, dziedzina, level);
         int a = 0;
         while (a != 10) {
@@ -256,6 +265,7 @@ public class Question extends AppCompatActivity {
             correct.setBackgroundColor(Color.RED);
             dobry.setBackgroundColor(Color.GREEN);
             punkties.get(indeks_pytania).changeColor(Color.RED);
+            badsound.start();
         }
         points();
         indeks_pytania++;
