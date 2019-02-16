@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/subject_title"
-            android:layout_width="match_parent"
+            android:layout_width="370dp"
             android:layout_height="86dp"
             android:text="Title"
             android:textColor="@android:color/black"
