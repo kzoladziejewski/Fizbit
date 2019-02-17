@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -21,7 +22,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -102,7 +105,6 @@ public class Question extends AppCompatActivity {
         }
 
         pytanie = (TextView) findViewById(R.id.mPytanie);
-
         mObrazek = (ImageView) findViewById(R.id.mObraz);
         mObrazek.setVisibility(View.INVISIBLE);
         mObrazek.setImageResource(0);
@@ -184,20 +186,23 @@ public class Question extends AppCompatActivity {
             mDownTimer.cancel();
         }
         firststart = false;
+
         mLicznik.setVisibility(View.VISIBLE);
         PoznajPytanieTimer.start();
         hideButton();
         mObrazek.setVisibility(View.INVISIBLE);
-        mObrazek.setBackgroundResource(0);
+//        mObrazek.setBackgroundResource(0);
         if (indeks_pytania < 10) {
 //            timer_1();
             if (pyty.get(indeks_pytania).getImg()) {
                 mObrazek.setVisibility(View.VISIBLE);
                 mObrazek.setBackgroundResource(pyty.get(indeks_pytania).getSciezka());
             } else {
+                Log.e("Pytanie ma:", String.valueOf(pytanie.getHeight()));
                 pytanie.setHeight(pytanie.getHeight() + mObrazek.getMaxHeight());
-
+                Log.e("Pytanie ma:", String.valueOf(pytanie.getHeight()));
             }
+            TextViewCompat.setAutoSizeTextTypeWithDefaults(pytanie, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
             pytanie.setText(Html.fromHtml(pyty.get(indeks_pytania).getPytanie()));
             pytanie.setGravity(Gravity.CENTER | Gravity.BOTTOM);
             ArrayList<Button> guziki = new ArrayList<>();
