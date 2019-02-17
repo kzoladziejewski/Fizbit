@@ -14,9 +14,9 @@
             android:id="@+id/mKategoria"
             android:layout_width="371dp"
             android:layout_height="63dp"
-            android:layout_alignParentEnd="true"
             android:layout_below="@+id/mCorgiScore"
-            android:text="@string/Dziala" />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/guzik_kategorie" />
 
         <Button
             android:id="@+id/mFizyka"

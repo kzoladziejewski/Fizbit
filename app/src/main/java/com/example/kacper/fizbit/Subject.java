@@ -42,11 +42,11 @@ public class Subject extends AppCompatActivity {
 
         if (kategoria.contains("Fizyka")) {
             kategoria_magazyn.add("Całość");
-//            kategoria_magazyn.add("Elektrycznosc");
-//            kategoria_magazyn.add("Dynamika");
+            kategoria_magazyn.add("Mechanika");
+            kategoria_magazyn.add("Elektrycznosc");
+            kategoria_magazyn.add("Dynamika");
             kategoria_magazyn.add("Optyka");
             kategoria_magazyn.add("Fizyka jądrowa");
-//            kategoria_magazyn.add("Mechanika");
 
         }
         if (kategoria.contains("Astronomia")) {

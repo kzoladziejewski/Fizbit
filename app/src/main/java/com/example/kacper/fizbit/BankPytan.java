@@ -19,9 +19,13 @@ public class BankPytan {
         }
 
         if (kategoria.equals("Fizyka") && (temat.equals("Dynamika"))) {
-            for (int a = 0; a < 15; a++) {
-                pytania.add(new Questions("AAAAX\u00B2<sup>10</sup>", "A", "AAAAX\u00B2<sup>10</sup>", "", "", false, 0));
-            }
+            BankPytanDynamika bankPytanDynamika = new BankPytanDynamika(level);
+            pytania = bankPytanDynamika.getPytania();
+        }
+
+        if (kategoria.equals("Fizyka") && (temat.equals("Mechanika"))) {
+            BankPytanMechanika bankPytanMechanika = new BankPytanMechanika(level);
+            pytania = bankPytanMechanika.getPytania();
         }
 
         if (kategoria.equals("Fizyka") && (temat.equals("Optyka"))) {
@@ -39,6 +43,11 @@ public class BankPytan {
             pytania = bankPytanPlanety.getPytania();
         }
 
+        if (kategoria.equals("Astronomia") && (temat.equals("Całość"))) {
+            BankPytanPlanety bankPytanPlanety = new BankPytanPlanety(level);
+            pytania.addAll(bankPytanPlanety.getPytania());
+
+        }
         if (kategoria.equals("Astronomia") && (temat.equals("Słońce"))) {
 
         }

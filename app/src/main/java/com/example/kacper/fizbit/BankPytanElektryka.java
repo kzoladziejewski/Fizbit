@@ -48,6 +48,8 @@ public class BankPytanElektryka {
             pytania.add(new Questions(" Linie siła pola elektrostatycznego są to linie wzdłuż których poruszałby się ładunek dodatni:", " Gdyby miał swobodę ruchu", " Gdyby był wiotki", " Gdyby był lekki", " Gdyby był ciężki", false, 0));
             pytania.add(new Questions(" Napięcie między punktami A i B w polu elektrostatycznym określa:", " Pracę przeniesienia ładunku jednostkowego miedzy tymi punktami", " Pracę podniesienia ładunku jednostkowego", " Słabe pole", " Silne pole", false, 0));
             pytania.add(new Questions(" Zwrot linii sił pola jest taki jak zwrot :", " Siły działającej na ładunek dodatni", " Siły działającej na ładunek ujemny", " Siły działającej na ładunek obojętny", " Żadna odpowiedź nie jest prawidłowa", false, 0));
+            pytania.add(new Questions("Poniższy wzór przedstawia:", "Prawo Coulomba", "Prawo Hertza", "Prawo Einsteina", "wzór na siłę", true, R.drawable.prawo_coulomba));
+            pytania.add(new Questions("Co to jest substancja zmniejszająca (lub całkowicie neutralizująca) nagromadzony na jakiejś powierzchni ładunek elektryczny?", "Antystatyk", "Izolator", "Przewodnik", "Statyk", false, 0));
 
         }
         if (level.equals("Trudny")) {
@@ -66,6 +68,7 @@ public class BankPytanElektryka {
             pytania.add(new Questions("Która z poniższych wielkości NIE JEST oporem elektrycznym?", " Susceptancja", " Impedancja", " Reaktancja", " Rezystancja", false, 0));
             pytania.add(new Questions("W półprzewodniku typu p nośnikami prądu są:", " Akceptory", " Elektrony", " Donory", " Godnory", false, 0));
             pytania.add(new Questions("Wzór mocy pozornej:", " S=U*J", " U=J*Z", " J=U*G", " Z=G*J", false, 0));
+            pytania.add(new Questions("Ile wynosi stała oddziaływań ładunków elektrycznych w próżni:", "8,9875*10<sup>9</sup>Nm<sup2>2</sup>C<sup>-2</sup>", "-8,9875*10<sup>9</sup>Nm<sup2>2</sup>C<sup>-2</sup>", "9,9997*10<sup>9</sup>Nm<sup2>2</sup>C<sup>-2</sup>", "10*10<sup>9</sup>Nm<sup2>2</sup>C<sup>-2</sup>", false, 0));
 
         }
 

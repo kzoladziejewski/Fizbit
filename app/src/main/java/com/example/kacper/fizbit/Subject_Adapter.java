@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -68,6 +70,8 @@ public class Subject_Adapter extends RecyclerView.Adapter {
                 v.getContext().startActivity(pytania);
             }
         });
+
+
         return new MyViewHolder(view);
 
 
@@ -76,8 +80,29 @@ public class Subject_Adapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         String article = kategoria.get(position);
-        Log.e("Kategoria", article);
-        ((MyViewHolder) holder).kategoriaText.setText(article);
+        if (article.equals("Całość")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_calosc);
+        }
+        if (article.equals("Elektrycznosc")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_elektrycznosc);
+        }
+        if (article.equals("Mechanika")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_mechanika);
+        }
+        if (article.equals("Optyka")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_optyka);
+        }
+        if (article.equals("Dynamika")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_termodynamika);
+        }
+        if (article.equals("Fizyka jądrowa")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_fizyka_jadrowa);
+        }
+        if (article.equals("Planety")) {
+            ((MyViewHolder) holder).kategoriaText.setBackgroundResource(R.drawable.guzik_planety);
+        }
+//        if (article.equals("Słońce")){((MyViewHolder) holder).kategoriaText.setBackgroundColor(R.drawable.);}
+
     }
 
     @Override

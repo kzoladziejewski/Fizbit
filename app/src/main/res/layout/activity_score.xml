@@ -28,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/mCorgiScore"
             android:layout_marginEnd="20dp"
-            android:text="@string/Powrot" />
+            android:background="@drawable/guzik_powrot" />
 
         <ImageView
             android:id="@+id/mCorgiScore"

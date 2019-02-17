@@ -79,6 +79,8 @@ public class Settings extends AppCompatActivity {
         mPowrot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp.start();
+
                 finish();
             }
         });
@@ -87,6 +89,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editor.putBoolean("sound", mDzwieki.isChecked());
+                mp.start();
                 Log.e("DZWIEKI", String.valueOf(mDzwieki.isChecked()));
             }
         });
