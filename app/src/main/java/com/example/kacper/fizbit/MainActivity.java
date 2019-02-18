@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Intent gra, ustawienia;
     SharedPreferences sharedPreferences;
     boolean dzwieki;
-
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         dzwieki = sharedPreferences.getBoolean("sound", false);
         Log.e("DZWIEKI MAINA", String.valueOf(dzwieki));
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.klik);
+        mp = MediaPlayer.create(this, R.raw.klik);
         final MediaPlayer ustawienia_s = MediaPlayer.create(this, R.raw.klik);
         mGraj.setBackgroundResource(R.drawable.guzik_graj);
         mUstawienia.setBackgroundResource(R.drawable.guzik_ustawienia);

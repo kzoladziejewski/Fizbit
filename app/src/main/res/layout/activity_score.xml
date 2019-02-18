@@ -19,7 +19,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/mCorgiScore"
             android:layout_marginStart="31dp"
-            android:text="@string/JeszczeRaz" />
+            android:background="@drawable/guzik_jeszcze_raz" />
 
         <Button
             android:id="@+id/mPowrot"

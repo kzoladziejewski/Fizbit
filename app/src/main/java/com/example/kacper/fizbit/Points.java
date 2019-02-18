@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,11 +19,11 @@ public class Points extends RecyclerView.Adapter {
     private RecyclerView mRecyclerView;
 
     private class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView questionPoints;
+        public ImageView questionPoints;
 
         public MyViewHolder(View pItem) {
             super(pItem);
-            questionPoints = (TextView) pItem.findViewById(R.id.question_points);
+            questionPoints = (ImageView) pItem.findViewById(R.id.question_points);
         }
     }
 
@@ -43,7 +44,15 @@ public class Points extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int art = kolor.get(position).getColors();
-        ((MyViewHolder) holder).questionPoints.setBackgroundColor(art);
+        if (art == 0) {
+            ((MyViewHolder) holder).questionPoints.setBackgroundResource(R.drawable.dobrze);
+        }
+        if (art == 1) {
+            ((MyViewHolder) holder).questionPoints.setBackgroundResource(R.drawable.zle);
+        }
+        if (art == 2) {
+            ((MyViewHolder) holder).questionPoints.setBackgroundResource(R.drawable.szaro);
+        }
     }
 
     @Override

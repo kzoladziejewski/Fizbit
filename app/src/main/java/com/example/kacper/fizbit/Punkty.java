@@ -13,8 +13,9 @@ public class Punkty {
         this.colors = color;
     }
 
-    public void changeColor(int kolor) {
-        colors = kolor;
+    public void changeColor(int kolo) {
+
+        colors = kolo;
     }
 
     public int getColors() {

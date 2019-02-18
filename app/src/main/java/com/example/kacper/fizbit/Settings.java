@@ -14,18 +14,18 @@ import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
     TextView mUstawiania, mPoziomTrudnosci;
-    Switch mDzwieki;
-    Button mLatwy, mSredni, mTrudny, mPowrot;
+    Button mLatwy, mSredni, mTrudny, mPowrot, mOn, mOff;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
+    Boolean dzwieki;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         mUstawiania = (TextView) findViewById(R.id.mUstawienia);
-        mPoziomTrudnosci = (TextView) findViewById(R.id.mPoziom);
-        mDzwieki = (Switch) findViewById(R.id.mDzwieki);
+//        mPoziomTrudnosci = (TextView) findViewById(R.id.mPoziom);
+        mOff = (Button) findViewById(R.id.off);
+        mOn = (Button) findViewById(R.id.on);
         mLatwy = (Button) findViewById(R.id.mLatwy);
         mSredni = (Button) findViewById(R.id.mSredni);
         mTrudny = (Button) findViewById(R.id.mTrudny);
@@ -33,11 +33,18 @@ public class Settings extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("fizbit", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.klik);
-        final boolean dzwieki = sharedPreferences.getBoolean("sound", false);
+        dzwieki = sharedPreferences.getBoolean("sound", false);
 
-        mDzwieki.setChecked(dzwieki);
         String kolorek = sharedPreferences.getString("level", "Latwy");
         koloruj(kolorek);
+        if (dzwieki) {
+            mOn.setBackgroundResource(R.drawable.guzik_on_wcisniety);
+            mOff.setBackgroundResource(R.drawable.guzik_off_niewcisniety);
+        }
+        if (!dzwieki) {
+            mOn.setBackgroundResource(R.drawable.guzik_on_niewcisniety);
+            mOff.setBackgroundResource(R.drawable.guzik_off_wcisniety);
+        }
         mLatwy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,24 +92,34 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        mDzwieki.setOnClickListener(new View.OnClickListener() {
+        mOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putBoolean("sound", mDzwieki.isChecked());
-                mp.start();
-                Log.e("DZWIEKI", String.valueOf(mDzwieki.isChecked()));
+                dzwieki = true;
+                mOff.setBackgroundResource(R.drawable.guzik_off_niewcisniety);
+                mOn.setBackgroundResource(R.drawable.guzik_on_wcisniety);
+            }
+        });
+
+        mOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dzwieki = false;
+                mOff.setBackgroundResource(R.drawable.guzik_off_wcisniety);
+                mOn.setBackgroundResource(R.drawable.guzik_on_niewcisniety);
             }
         });
     }
 
     @Override
     protected void onDestroy() {
+        editor.putBoolean("sound", dzwieki);
+
         editor.commit();
         super.onDestroy();
     }
 
     public void zapis(String poziom, int czas) {
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("level", poziom);
         editor.putInt("time", czas);
 

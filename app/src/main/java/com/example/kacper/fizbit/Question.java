@@ -62,7 +62,7 @@ public class Question extends AppCompatActivity {
         setContentView(R.layout.activity_question);
 
         for (int i = 0; i < 10; i++) {
-            punkties.add(new Punkty(Color.GRAY));
+            punkties.add(new Punkty(2));
         }
 
         punkciki = (RecyclerView) findViewById(R.id.mRecycle);
@@ -83,12 +83,17 @@ public class Question extends AppCompatActivity {
 
 
         if (level.equals("Latwy")) {
+            Log.e("QUESTION", "LATWY");
             mp = MediaPlayer.create(this, R.raw.dobra_odp_latwy);
         }
         if (level.equals("Sredni")) {
+            Log.e("QUESTION", "SREDNI");
+
             mp = MediaPlayer.create(this, R.raw.dobra_odp_sredni);
         }
         if (level.equals("Trudny")) {
+            Log.e("QUESTION", "TRUDNY");
+
             mp = MediaPlayer.create(this, R.raw.dobra_odp_trudny);
         }
         badsound = MediaPlayer.create(this, R.raw.zla_odp);
@@ -198,9 +203,7 @@ public class Question extends AppCompatActivity {
                 mObrazek.setVisibility(View.VISIBLE);
                 mObrazek.setBackgroundResource(pyty.get(indeks_pytania).getSciezka());
             } else {
-                Log.e("Pytanie ma:", String.valueOf(pytanie.getHeight()));
                 pytanie.setHeight(pytanie.getHeight() + mObrazek.getMaxHeight());
-                Log.e("Pytanie ma:", String.valueOf(pytanie.getHeight()));
             }
             TextViewCompat.setAutoSizeTextTypeWithDefaults(pytanie, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
             pytanie.setText(Html.fromHtml(pyty.get(indeks_pytania).getPytanie()));
@@ -260,16 +263,13 @@ public class Question extends AppCompatActivity {
 
                 mp.start();
             }
-            punkties.get(indeks_pytania).changeColor(Color.GREEN);
-            Log.e("PYTANIE", String.valueOf(wynik));
+            punkties.get(indeks_pytania).changeColor(0);
             wynik++;
-            Log.e("PYTANIE W CZYM JEST RZECZ", String.valueOf(wynik));
         } else {
-            Log.e("ZLA ODPOWIEDZ KTORA MA PUNKTY", String.valueOf(wynik));
 
             correct.setBackgroundColor(Color.RED);
             dobry.setBackgroundColor(Color.GREEN);
-            punkties.get(indeks_pytania).changeColor(Color.RED);
+            punkties.get(indeks_pytania).changeColor(1);
             badsound.start();
         }
         points();
@@ -340,7 +340,6 @@ public class Question extends AppCompatActivity {
                 if (mLicznik_czasu < 0) {
                     mLicznik_czasu = 0;
                 }
-                Log.e("Licznik cza", String.valueOf(mLicznik_czasu));
             }
 
             @Override

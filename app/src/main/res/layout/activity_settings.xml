@@ -8,7 +8,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/mUstawienia"
@@ -16,27 +18,15 @@
             android:layout_height="59dp"
             android:layout_below="@+id/mCorgiScore"
             android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:text="@string/Ustawienia"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="43dp" />
+            android:background="@drawable/guzik_dzwieki" />
 
-        <Switch
-            android:id="@+id/mDzwieki"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/mUstawienia"
-            android:layout_below="@+id/mUstawienia"
-            android:layout_weight="1"
-            android:text="@string/Dzwięki"
-            tools:layout_editor_absoluteX="283dp"
-            tools:layout_editor_absoluteY="144dp" />
 
         <Button
             android:id="@+id/mLatwy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mPoziom"
+            android:layout_alignBaseline="@+id/mSredni"
+            android:layout_alignBottom="@+id/mSredni"
             android:layout_toStartOf="@+id/mSredni"
             android:background="@drawable/guzik_latwy_nie_wcisniety" />
 
@@ -44,32 +34,23 @@
             android:id="@+id/mSredni"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/mLatwy"
-            android:layout_alignBottom="@+id/mLatwy"
-            android:layout_toStartOf="@+id/mDzwieki"
+            android:layout_above="@+id/mPowrot"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/guzik_sredni_wcisniety" />
 
         <Button
             android:id="@+id/mTrudny"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mPoziom"
+            android:layout_alignBaseline="@+id/mSredni"
+            android:layout_alignBottom="@+id/mSredni"
             android:layout_toEndOf="@+id/mSredni"
             android:background="@drawable/guzik_trudny_nie_wcisniety" />
-
-        <TextView
-            android:id="@+id/mPoziom"
-            android:layout_width="356dp"
-            android:layout_height="43dp"
-            android:layout_below="@+id/mDzwieki"
-            android:layout_marginTop="18dp"
-            android:text="@string/Poziom_trudności" />
 
         <Button
             android:id="@+id/mPowrot"
             android:layout_width="342dp"
             android:layout_height="70dp"
-
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/guzik_powrot" />
@@ -78,10 +59,28 @@
             android:id="@+id/mCorgiScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="12dp"
+            android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/corgi" />
+
+        <Button
+            android:id="@+id/on"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/mUstawienia"
+            android:layout_below="@+id/mUstawienia"
+            android:layout_marginStart="57dp"
+            android:background="@drawable/guzik_on_niewcisniety" />
+
+        <Button
+            android:id="@+id/off"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignEnd="@+id/mUstawienia"
+            android:layout_below="@+id/mUstawienia"
+            android:layout_marginEnd="55dp"
+            android:background="@drawable/guzik_off_niewcisniety" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
